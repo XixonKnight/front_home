@@ -52,6 +52,9 @@ import { StatsProgressBarService } from './mock/stats-progress-bar.service';
 import { VisitorsAnalyticsService } from './mock/visitors-analytics.service';
 import { SecurityCamerasService } from './mock/security-cameras.service';
 import { MockDataModule } from './mock/mock-data.module';
+import {StickyDirective} from './_config/directives/sticky.driective';
+import {HTTP_INTERCEPTORS} from '@angular/common/http';
+import {RequestInterceptor} from './intercepters/request.interceptor';
 
 const socialLinks = [
   {
@@ -151,8 +154,9 @@ export const NB_CORE_PROVIDERS = [
   ],
   exports: [
     NbAuthModule,
+    StickyDirective,
   ],
-  declarations: [],
+  declarations: [StickyDirective],
 })
 export class CoreModule {
   constructor(@Optional() @SkipSelf() parentModule: CoreModule) {

@@ -3,14 +3,14 @@
  * Copyright Akveo. All Rights Reserved.
  * Licensed under the MIT License. See License.txt in the project root for license information.
  */
-import { BrowserModule } from '@angular/platform-browser';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { NgModule } from '@angular/core';
-import { HttpClientModule } from '@angular/common/http';
-import { CoreModule } from './@core/core.module';
-import { ThemeModule } from './@theme/theme.module';
-import { AppComponent } from './app.component';
-import { AppRoutingModule } from './app-routing.module';
+import {BrowserModule} from '@angular/platform-browser';
+import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
+import {APP_INITIALIZER, NgModule} from '@angular/core';
+import {HTTP_INTERCEPTORS, HttpClient, HttpClientModule} from '@angular/common/http';
+import {CoreModule} from './@core/core.module';
+import {ThemeModule} from './@theme/theme.module';
+import {AppComponent} from './app.component';
+import {AppRoutingModule} from './app-routing.module';
 import {
   NbChatModule,
   NbDatepickerModule,
@@ -20,6 +20,20 @@ import {
   NbToastrModule,
   NbWindowModule,
 } from '@nebular/theme';
+import {SharesModule} from './shares/shares.module';
+import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
+import {TranslateHttpLoader} from '@ngx-translate/http-loader';
+import {RequestInterceptor} from './@core/intercepters/request.interceptor';
+
+
+// export function initL10n(l10nLoader: L10nLoader): Function {
+//   return () => l10nLoader.load();
+// }
+
+export function HttpLoaderFactory(http: HttpClient) {
+  return new TranslateHttpLoader(http);
+}
+
 
 @NgModule({
   declarations: [AppComponent],
@@ -39,8 +53,23 @@ import {
     }),
     CoreModule.forRoot(),
     ThemeModule.forRoot(),
+    SharesModule,
+    NgbModule,
   ],
   bootstrap: [AppComponent],
+  providers: [
+    {
+      provide: APP_INITIALIZER,
+      useFactory: HttpLoaderFactory,
+      deps: [HttpClient],
+      multi: true,
+    },
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: RequestInterceptor,
+      multi: true,
+    },
+  ],
 })
 export class AppModule {
 }

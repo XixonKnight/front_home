@@ -18,7 +18,6 @@ const routes: Routes = [{
       loadChildren: () => import('./layout/layout.module')
         .then(m => m.LayoutModule),
     },
-    
     {
       path: 'charts',
       loadChildren: () => import('./charts/charts.module')
@@ -28,6 +27,16 @@ const routes: Routes = [{
       path: 'miscellaneous',
       loadChildren: () => import('./miscellaneous/miscellaneous.module')
         .then(m => m.MiscellaneousModule),
+    },
+    {
+      path: 'user',
+      loadChildren: () => import('./users/users.module')
+        .then(m => m.UsersModule),
+    },
+    {
+      path: 'products',
+      loadChildren: () => import('./products/products.module')
+        .then(m => m.ProductsModule),
     },
     {
       path: '',

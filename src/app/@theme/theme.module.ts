@@ -38,6 +38,9 @@ import { DEFAULT_THEME } from './styles/theme.default';
 import { COSMIC_THEME } from './styles/theme.cosmic';
 import { CORPORATE_THEME } from './styles/theme.corporate';
 import { DARK_THEME } from './styles/theme.dark';
+import { SelectorLanguageComponent } from './components/selector-language/selector-language.component';
+import {TranslationModule} from '../@core/i18n/translation.module';
+import {TranslateModule} from '@ngx-translate/core';
 
 const NB_MODULES = [
   NbLayoutModule,
@@ -52,6 +55,7 @@ const NB_MODULES = [
   NbSelectModule,
   NbIconModule,
   NbEvaIconsModule,
+  TranslationModule,
 ];
 const COMPONENTS = [
   HeaderComponent,
@@ -71,9 +75,13 @@ const PIPES = [
 ];
 
 @NgModule({
-  imports: [CommonModule, ...NB_MODULES],
+  imports: [
+    CommonModule,
+    ...NB_MODULES,
+    TranslateModule.forRoot(),
+  ],
   exports: [CommonModule, ...PIPES, ...COMPONENTS],
-  declarations: [...COMPONENTS, ...PIPES],
+  declarations: [...COMPONENTS, ...PIPES, SelectorLanguageComponent],
 })
 export class ThemeModule {
   static forRoot(): ModuleWithProviders<ThemeModule> {

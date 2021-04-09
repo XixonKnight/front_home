@@ -1,0 +1,15 @@
+<nb-select [selected]="currentTheme"
+           (selectedChange)="changeTheme($event)"
+           status="primary">
+
+  <nb-option *ngFor="let lang of languages"
+             [value]="lang.lang">
+    <img class="h-25px w-25px rounded"
+         [src]="lang.flag"
+         alt="language">
+  </nb-option>
+</nb-select>
+
+
+
+
