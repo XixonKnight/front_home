@@ -1,6 +1,6 @@
 import { ModuleWithProviders, NgModule, Optional, SkipSelf } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { NbAuthModule, NbDummyAuthStrategy } from '@nebular/auth';
+import {NbAuthModule, NbDummyAuthStrategy, NbPasswordAuthStrategy} from '@nebular/auth';
 import { NbSecurityModule, NbRoleProvider } from '@nebular/security';
 import { of as observableOf } from 'rxjs';
 
@@ -55,22 +55,26 @@ import { MockDataModule } from './mock/mock-data.module';
 import {StickyDirective} from './_config/directives/sticky.driective';
 import {HTTP_INTERCEPTORS} from '@angular/common/http';
 import {RequestInterceptor} from './intercepters/request.interceptor';
+import {environment} from '../../environments/environment';
 
 const socialLinks = [
   {
     url: 'https://github.com/akveo/nebular',
     target: '_blank',
     icon: 'github',
+    title: 'github',
   },
   {
     url: 'https://www.facebook.com/akveo/',
     target: '_blank',
     icon: 'facebook',
+    title: 'facebook',
   },
   {
     url: 'https://twitter.com/akveo_inc',
     target: '_blank',
-    icon: 'twitter',
+    icon: 'google',
+    title: 'google',
   },
 ];
 
@@ -97,6 +101,10 @@ const DATA_SERVICES = [
 ];
 
 export class NbSimpleRoleProvider extends NbRoleProvider {
+
+  // private readonly baseUrl = environment.apiUrl;
+
+
   getRole() {
     // here you could provide any role based on any auth flow
     return observableOf('guest');
@@ -106,23 +114,7 @@ export class NbSimpleRoleProvider extends NbRoleProvider {
 export const NB_CORE_PROVIDERS = [
   ...MockDataModule.forRoot().providers,
   ...DATA_SERVICES,
-  ...NbAuthModule.forRoot({
-
-    strategies: [
-      NbDummyAuthStrategy.setup({
-        name: 'email',
-        delay: 3000,
-      }),
-    ],
-    forms: {
-      login: {
-        socialLinks: socialLinks,
-      },
-      register: {
-        socialLinks: socialLinks,
-      },
-    },
-  }).providers,
+  // ...NbAuthModule.forRoot({}).providers,
 
   NbSecurityModule.forRoot({
     accessControl: {

@@ -44,8 +44,13 @@ const routes: Routes = [{
       pathMatch: 'full',
     },
     {
-      path: '**',
+      path: 'error/404',
       component: NotFoundComponent,
+    },
+    {
+      path: '**',
+      redirectTo: 'error/404',
+      pathMatch: 'full',
     },
   ],
 }];

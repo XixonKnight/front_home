@@ -22,18 +22,12 @@ import {
 } from '@nebular/theme';
 import {SharesModule} from './shares/shares.module';
 import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
-import {TranslateHttpLoader} from '@ngx-translate/http-loader';
 import {RequestInterceptor} from './@core/intercepters/request.interceptor';
-
-
-// export function initL10n(l10nLoader: L10nLoader): Function {
-//   return () => l10nLoader.load();
-// }
-
-export function HttpLoaderFactory(http: HttpClient) {
-  return new TranslateHttpLoader(http);
-}
-
+import {
+  FacebookLoginProvider,
+  GoogleLoginProvider,
+  SocialAuthServiceConfig, SocialLoginModule,
+} from 'angularx-social-login';
 
 @NgModule({
   declarations: [AppComponent],
@@ -55,19 +49,32 @@ export function HttpLoaderFactory(http: HttpClient) {
     ThemeModule.forRoot(),
     SharesModule,
     NgbModule,
+    SocialLoginModule,
   ],
   bootstrap: [AppComponent],
   providers: [
     {
-      provide: APP_INITIALIZER,
-      useFactory: HttpLoaderFactory,
-      deps: [HttpClient],
-      multi: true,
-    },
-    {
       provide: HTTP_INTERCEPTORS,
       useClass: RequestInterceptor,
       multi: true,
+    },
+    {
+      provide: 'SocialAuthServiceConfig',
+      useValue: {
+        autoLogin: false,
+        providers: [
+          {
+            id: GoogleLoginProvider.PROVIDER_ID,
+            provider: new GoogleLoginProvider(
+              '569599946060-9s09k2ujflc4ar0p5fsml7t6d78i3a0v.apps.googleusercontent.com',
+            ),
+          },
+          {
+            id: FacebookLoginProvider.PROVIDER_ID,
+            provider: new FacebookLoginProvider('821640785131717'),
+          },
+        ],
+      } as SocialAuthServiceConfig,
     },
   ],
 })
