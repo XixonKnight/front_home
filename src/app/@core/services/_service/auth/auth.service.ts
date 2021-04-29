@@ -4,7 +4,7 @@ import {Router} from '@angular/router';
 import {environment} from '../../../../../environments/environment';
 import {BehaviorSubject, Observable} from 'rxjs';
 import {HttpClient, HttpHeaders} from '@angular/common/http';
-import {TokenReq} from '../../../utils/token-req';
+import {FormProviderRequest} from '../../../utils/form-provider-req';
 import {DataResponse} from '../../../utils/data-response';
 
 const header = {headers: new HttpHeaders({'Content-Type': 'application/json'})};
@@ -17,21 +17,27 @@ export class AuthService {
   constructor(
     private cookie: CookieService,
     private http: HttpClient,
+    private router: Router,
   ) {
-    this.baseUrl = environment.apiUrl;
+    // this.baseUrl = environment.apiUrl;
   }
 
   getToken() {
     return this.cookie.get('token');
   }
 
-  public google(token: TokenReq): Observable<DataResponse> {
-    // @ts-ignore
-    return this.http.post<any>(`${this.baseUrl}google`, token, header);
+  public google(form: FormProviderRequest): Observable<DataResponse> {
+    return this.http.post<DataResponse>(`${this.baseUrl}google`, form, header);
   }
 
-  public facebook(token: TokenReq): Observable<DataResponse> {
-    // @ts-ignore
-    return this.http.post<TokenDto>(`${this.baseUrl}facebook`, token, header);
+  public facebook(form: FormProviderRequest): Observable<DataResponse> {
+    return this.http.post<DataResponse>(`${this.baseUrl}facebook`, form, header);
+  }
+  logOut() {
+    sessionStorage.clear();
+    this.cookie.deleteAll();
+    this.router.navigate(['/auth/login'], {
+      queryParams: {},
+    });
   }
 }

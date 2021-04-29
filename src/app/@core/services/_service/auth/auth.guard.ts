@@ -18,7 +18,7 @@ export class AuthGuard implements CanActivate {
       // logged in so return true
       return true;
     }
-    this.authService.logout();
+    this.authService.logOut();
     return false;
   }
 
