@@ -6,27 +6,81 @@
   </small>
   <h3 class="mb-1">Sign up to izylearning</h3>
   <p class="mb-4 text-sm">Create our account and start learning with thousands of courses</p>
-  <div class="row mt-3">
-    <div class="col-md-6"><label class="mb-0">
-      <h6 class="mb-0 text-sm">Full Name</h6>
-    </label> <input type="text" name="fname" placeholder="John Doe"></div>
-    <div class="col-md-6"><label class="mb-0">
-      <h6 class="mb-0 text-sm">Username</h6>
-    </label> <input type="text" name="uname" placeholder="johndoe123"></div>
+  <form [formGroup]="formRegister">
+    <div class="row mt-3">
+      <div class="col-md-6">
+        <label class="mb-0">
+          <h6 class="mb-0 text-sm required">First name</h6>
+        </label>
+        <input type="text"
+               class="mb-1 "
+               formControlName="firstName"
+               name="fname" placeholder="First name">
+        <small *ngIf="f['firstName'].errors?.required && isSubmitted"
+               class="text-danger">First name is Required
+        </small>
+      </div>
+      <div class="col-md-6">
+        <label class="mb-0">
+          <h6 class="mb-0 text-sm required">Last name</h6>
+        </label>
+        <input type="text"
+               class="mb-1"
+               formControlName="lastName"
+               name="lname" placeholder="Last name">
+        <small *ngIf="f['lastName'].errors?.required && isSubmitted"
+               class="text-danger">Last name is Required
+        </small>
+      </div>
+    </div>
+    <div class="row mt-3">
+      <div class="col-md-6">
+        <label class="mb-0">
+          <h6 class="mb-0 text-sm required">Username</h6>
+        </label>
+        <input type="text"
+               class="mb-1"
+               formControlName="username"
+               name="uname" placeholder="Username">
+        <small *ngIf="f['username'].errors?.required && isSubmitted"
+               class="text-danger">Username is Required
+        </small>
+      </div>
+    </div>
+    <div class="row px-3 mt-4">
+      <label class="mb-0">
+        <h6 class="mb-0 text-sm required">Email Address</h6>
+      </label>
+      <input type="text"
+             formControlName="email"
+             class="mb-1"
+             name="email" placeholder="john.doe@email.com">
+      <small *ngIf="f['email'].errors?.required && isSubmitted"
+             class="text-danger">Email is Required
+      </small>
+    </div>
+    <div class="row px-3 mt-4">
+      <label class="mb-0">
+        <h6 class="mb-0 text-sm required">Password</h6>
+      </label>
+      <input type="password" name="password"
+             formControlName="password"
+             class="mb-1"
+             placeholder="&#9679;&#9679;&#9679;&#9679;&#9679;&#9679;&#9679;&#9679;&#9679;&#9679;">
+      <small *ngIf="f['password'].errors?.required && isSubmitted"
+             class="text-danger">Password is Required
+      </small>
+    </div>
+  </form>
+  <div class="row px-3 mb-3 mt-3">
+    <small class="text-muted">By signing up, you agree our
+      <a href="" class="text-primary">Terms of services</a> and
+      <a href="" class="text-primary">Privacy Policy</a>
+    </small>
   </div>
-  <div class="row px-3"><label class="mb-0">
-    <h6 class="mb-0 text-sm">Email Address</h6>
-  </label> <input type="text" name="email" placeholder="john.doe@email.com"></div>
-  <div class="row px-3"><label class="mb-0">
-    <h6 class="mb-0 text-sm">Password</h6>
-  </label> <input type="password" name="password"
-                  placeholder="&#9679;&#9679;&#9679;&#9679;&#9679;&#9679;&#9679;&#9679;&#9679;&#9679;"></div>
-  <div class="row px-3 mb-3"><small class="text-muted">By signing up, you agree our <a href=""
-                                                                                       class="text-primary">Terms
-    of services</a> and <a href="" class="text-primary">Privacy Policy</a></small></div>
   <div class="row mb-4">
     <div class="col-md-6">
-      <button class="btn btn-blue text-center mb-1 py-2">Create Account</button>
+      <button class="btn btn-blue text-center mb-1 py-2" (click)="onSubmit()">Create Account</button>
     </div>
   </div>
   <div class="row px-3 mb-4">

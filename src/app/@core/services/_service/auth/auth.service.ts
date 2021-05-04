@@ -14,6 +14,7 @@ const header = {headers: new HttpHeaders({'Content-Type': 'application/json'})};
 })
 export class AuthService {
   private readonly baseUrl = `${environment.apiUrl}oauth/`;
+
   constructor(
     private cookie: CookieService,
     private http: HttpClient,
@@ -33,11 +34,16 @@ export class AuthService {
   public facebook(form: FormProviderRequest): Observable<DataResponse> {
     return this.http.post<DataResponse>(`${this.baseUrl}facebook`, form, header);
   }
+
   logOut() {
     sessionStorage.clear();
     this.cookie.deleteAll();
     this.router.navigate(['/auth/login'], {
       queryParams: {},
     });
+  }
+
+  public createUser(form: any): Observable<any> {
+    return this.http.post(`${this.baseUrl}create-user`, form);
   }
 }

@@ -43,7 +43,6 @@ export class LoginComponent implements OnInit {
   signInWithGoogle(): void {
     this.authService.signIn(GoogleLoginProvider.PROVIDER_ID).then(data => {
       this.socialUser = data;
-      console.log(data);
       const form = new FormProviderRequest();
       form.token = this.socialUser.idToken;
       this.service.google(form).subscribe(
@@ -63,7 +62,7 @@ export class LoginComponent implements OnInit {
   signInWithFB(): void {
     this.authService.signIn(FacebookLoginProvider.PROVIDER_ID).then(res => {
       this.socialUser = res;
-      console.log(res);
+      // console.log(res);
       // const tokenFacebook = new TokenDto(this.socialUser.authToken);
       // this.oauthService.facebook(tokenFacebook).subscribe(
       //   data=>{
@@ -74,7 +73,7 @@ export class LoginComponent implements OnInit {
       // )
     }).catch(
       err => {
-        console.log(err);
+        // console.log(err);
       },
     );
   }

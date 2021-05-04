@@ -1,6 +1,6 @@
 import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
-import { FormsModule } from '@angular/forms';
+import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import { RouterModule } from '@angular/router';
 
 import { NbAuthModule } from '@nebular/auth';
@@ -29,6 +29,7 @@ import { AuthComponent } from './auth.component';
 
     NbAuthModule,
     NbIconModule,
+    ReactiveFormsModule,
   ],
   declarations: [
   LoginComponent,
