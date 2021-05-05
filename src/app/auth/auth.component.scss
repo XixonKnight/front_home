@@ -115,8 +115,8 @@ a {
 }
 @media screen and (max-width: 991px) {
   .card1 {
-    border-bottom-left-radius: 0px;
-    border-top-right-radius: 20px
+    border-bottom-left-radius: 0px !important;
+    border-top-right-radius: 20px;
   }
 
   .card2 {

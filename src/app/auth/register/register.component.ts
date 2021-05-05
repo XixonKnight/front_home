@@ -1,6 +1,9 @@
 import {Component, OnInit} from '@angular/core';
 import {FormBuilder, FormGroup, Validators} from '@angular/forms';
 import {AuthService} from '../../@core/services/_service/auth/auth.service';
+import {Router} from '@angular/router';
+import {ToastrService} from 'ngx-toastr';
+import {NgxSpinnerService} from 'ngx-spinner';
 
 @Component({
   selector: 'ngx-register',
@@ -15,6 +18,10 @@ export class RegisterComponent implements OnInit {
   constructor(
     private fb: FormBuilder,
     private service: AuthService,
+    private router: Router,
+    private toastr: ToastrService,
+    private spinner: NgxSpinnerService,
+
   ) {
   }
 
@@ -48,9 +55,17 @@ export class RegisterComponent implements OnInit {
   onSubmit() {
     this.isSubmitted = true;
     if (this.formRegister.valid) {
-      this.service.createUser(this.formRegister.value).subscribe(res=>{
-        console.log(res);
-      })
+      this.spinner.show();
+      this.service.createUser(this.formRegister.value).subscribe(res => {
+        if (res.code === 'success') {
+          this.spinner.hide();
+          this.router.navigate(['/auth/login']);
+          this.toastr.success(res.message);
+        } else {
+          this.spinner.hide();
+          this.toastr.warning(res.message);
+        }
+      });
     }
   }
 }

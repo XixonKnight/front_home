@@ -20,11 +20,6 @@ export class AuthService {
     private http: HttpClient,
     private router: Router,
   ) {
-    // this.baseUrl = environment.apiUrl;
-  }
-
-  getToken() {
-    return this.cookie.get('token');
   }
 
   public google(form: FormProviderRequest): Observable<DataResponse> {
@@ -43,7 +38,11 @@ export class AuthService {
     });
   }
 
-  public createUser(form: any): Observable<any> {
+  public createUser(form: any): Observable<DataResponse> {
     return this.http.post(`${this.baseUrl}create-user`, form);
+  }
+
+  public login(form: any): Observable<DataResponse> {
+    return this.http.post(`${this.baseUrl}authenticate`, form);
   }
 }

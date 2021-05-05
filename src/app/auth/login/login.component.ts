@@ -8,7 +8,10 @@ import {
 import {Router} from '@angular/router';
 import {TokenService} from '../../@core/services/_service/auth/token.service';
 import {AuthService} from '../../@core/services/_service/auth/auth.service';
-import { FormProviderRequest } from '../../@core/utils/form-provider-req';
+import {FormProviderRequest} from '../../@core/utils/form-provider-req';
+import {FormBuilder, FormGroup, Validators} from '@angular/forms';
+import {ToastrService} from 'ngx-toastr';
+import {NgxSpinnerService} from 'ngx-spinner';
 
 @Component({
   selector: 'ngx-login',
@@ -19,25 +22,37 @@ export class LoginComponent implements OnInit {
 
   socialUser: SocialUser;
   userLogged: SocialUser;
-  isLogged: boolean;
+  form: FormGroup;
+  isSubmitted = false;
 
   constructor(
     private authService: SocialAuthService,
     private service: AuthService,
     private tokenService: TokenService,
     private router: Router,
+    private fb: FormBuilder,
+    private toastr: ToastrService,
+    private spinner: NgxSpinnerService,
   ) {
   }
 
   ngOnInit(): void {
-    this.disables();
+    this.disables('none');
+    this.initForm();
   }
 
-  disables() {
+  disables(display: string) {
     const el = document.getElementById('nb-global-spinner');
     if (el) {
-      el.style['display'] = 'none';
+      el.style['display'] = display;
     }
+  }
+
+  initForm() {
+    this.form = this.fb.group({
+      email: ['', Validators.required],
+      password: ['', Validators.required],
+    });
   }
 
   signInWithGoogle(): void {
@@ -48,13 +63,12 @@ export class LoginComponent implements OnInit {
       this.service.google(form).subscribe(
         res => {
           this.tokenService.setToken(res.data.jwt);
-          this.isLogged = true;
+          this.router.navigate(['']);
         },
       );
     }).catch(
       err => {
-        // tslint:disable-next-line:no-console
-        console.log(err);
+        this.toastr.error(err);
       },
     );
   }
@@ -76,5 +90,27 @@ export class LoginComponent implements OnInit {
         // console.log(err);
       },
     );
+  }
+
+  onSubmit() {
+    this.isSubmitted = true;
+    if (this.form.valid) {
+      this.spinner.show();
+      this.service.login(this.form.value).subscribe(res => {
+        if (res.code === 'success') {
+          // console.log(res);
+          this.spinner.hide();
+          this.tokenService.setToken(res.data.jwt);
+          this.router.navigate(['']);
+        } else {
+          this.toastr.error(res.message);
+          this.spinner.hide();
+        }
+      });
+    }
+  }
+
+  get f() {
+    return this.form.controls;
   }
 }

@@ -28,6 +28,15 @@ import {
   GoogleLoginProvider,
   SocialAuthServiceConfig, SocialLoginModule,
 } from 'angularx-social-login';
+import {ToastrModule} from 'ngx-toastr';
+
+const configToast: any = {
+  timeOut: 2000,
+  positionClass: 'toast-bottom-right',
+  preventDuplicates: true,
+  progressBar: true,
+  progressAnimation: 'increasing',
+};
 
 @NgModule({
   declarations: [AppComponent],
@@ -50,6 +59,7 @@ import {
     SharesModule,
     NgbModule,
     SocialLoginModule,
+    ToastrModule.forRoot(configToast),
   ],
   bootstrap: [AppComponent],
   providers: [

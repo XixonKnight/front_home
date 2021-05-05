@@ -6,31 +6,35 @@ import { RouterModule } from '@angular/router';
 import { NbAuthModule } from '@nebular/auth';
 import {
   NbAlertModule,
-  NbButtonModule,
+  NbButtonModule, NbCardModule,
   NbCheckboxModule, NbIconModule,
-  NbInputModule,
+  NbInputModule, NbSpinnerModule,
 } from '@nebular/theme';
 import {NgxAuthRoutingModule} from './auth-routing.module';
 import { LoginComponent } from './login/login.component';
 import { RegisterComponent } from './register/register.component';
 import { AuthComponent } from './auth.component';
+import {NgxSpinnerModule} from "ngx-spinner";
 
 
 @NgModule({
-  imports: [
-    CommonModule,
-    FormsModule,
-    RouterModule,
-    NbAlertModule,
-    NbInputModule,
-    NbButtonModule,
-    NbCheckboxModule,
-    NgxAuthRoutingModule,
+    imports: [
+        CommonModule,
+        FormsModule,
+        RouterModule,
+        NbAlertModule,
+        NbInputModule,
+        NbButtonModule,
+        NbCheckboxModule,
+        NgxAuthRoutingModule,
 
-    NbAuthModule,
-    NbIconModule,
-    ReactiveFormsModule,
-  ],
+        NbAuthModule,
+        NbIconModule,
+        ReactiveFormsModule,
+        NbCardModule,
+        NbSpinnerModule,
+        NgxSpinnerModule,
+    ],
   declarations: [
   LoginComponent,
   RegisterComponent,

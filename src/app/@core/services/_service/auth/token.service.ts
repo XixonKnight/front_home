@@ -21,5 +21,8 @@ export class TokenService {
     this.cookie.set(TOKEN_KEY, token);
   }
 
+  removeToken() {
+    this.cookie.delete(TOKEN_KEY);
+  }
 
 }
