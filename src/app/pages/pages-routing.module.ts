@@ -1,9 +1,9 @@
-import { RouterModule, Routes } from '@angular/router';
-import { NgModule } from '@angular/core';
+import {RouterModule, Routes} from '@angular/router';
+import {NgModule} from '@angular/core';
 
-import { PagesComponent } from './pages.component';
-import { DashboardComponent } from './dashboard/dashboard.component';
-import { NotFoundComponent } from './miscellaneous/not-found/not-found.component';
+import {PagesComponent} from './pages.component';
+import {DashboardComponent} from './dashboard/dashboard.component';
+import {NotFoundComponent} from './miscellaneous/not-found/not-found.component';
 
 const routes: Routes = [{
   path: '',
@@ -37,6 +37,11 @@ const routes: Routes = [{
       path: 'products',
       loadChildren: () => import('./products/products.module')
         .then(m => m.ProductsModule),
+    },
+    {
+      path: 'category',
+      loadChildren: () => import('./category/category.module')
+        .then(m => m.CategoryModule),
     },
     {
       path: '',

@@ -17,6 +17,11 @@ export const MENU_ITEMS: NbMenuItem[] = [
     link: '/pages/products',
   },
   {
+    title: 'Category',
+    icon: 'production_outline',
+    link: '/pages/category',
+  },
+  {
     title: 'FEATURES',
     group: true,
   },

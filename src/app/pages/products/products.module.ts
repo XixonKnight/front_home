@@ -4,8 +4,8 @@ import {ProductComponent} from './product.component';
 import {RouterModule, Routes} from '@angular/router';
 import {PortletModule} from '../../shares/portlet/portlet.module';
 import { NgxPaginationModule } from 'ngx-pagination';
-import {NgbModule} from "@ng-bootstrap/ng-bootstrap";
-import {Ng2SmartTableModule} from "ng2-smart-table";
+import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
+import {Ng2SmartTableModule} from 'ng2-smart-table';
 
 const routes: Routes = [
   {

@@ -29,6 +29,7 @@ import {
   SocialAuthServiceConfig, SocialLoginModule,
 } from 'angularx-social-login';
 import {ToastrModule} from 'ngx-toastr';
+import {ReactiveFormsModule} from '@angular/forms';
 
 const configToast: any = {
   timeOut: 2000,
@@ -38,6 +39,7 @@ const configToast: any = {
   progressAnimation: 'increasing',
 };
 
+// @ts-ignore
 @NgModule({
   declarations: [AppComponent],
   imports: [
@@ -60,6 +62,7 @@ const configToast: any = {
     NgbModule,
     SocialLoginModule,
     ToastrModule.forRoot(configToast),
+    ReactiveFormsModule,
   ],
   bootstrap: [AppComponent],
   providers: [
@@ -88,5 +91,5 @@ const configToast: any = {
     },
   ],
 })
-export class AppModule {
+export class AppModule  {
 }
