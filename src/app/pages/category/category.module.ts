@@ -5,6 +5,8 @@ import {CategoryComponent} from './category.component';
 import { AddComponent } from './add/add.component';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {NgxSpinnerModule} from "ngx-spinner";
+import {TableModule} from "primeng/table";
+import {PortletModule} from "../../shares/portlet/portlet.module";
 
 const routes: Routes = [
   {
@@ -22,13 +24,15 @@ const routes: Routes = [
     AddComponent,
     CategoryComponent,
   ],
-    imports: [
-        CommonModule,
-        FormsModule,
-        RouterModule.forChild(routes),
-        ReactiveFormsModule,
-        NgxSpinnerModule,
-    ],
+  imports: [
+    CommonModule,
+    FormsModule,
+    RouterModule.forChild(routes),
+    ReactiveFormsModule,
+    NgxSpinnerModule,
+    TableModule,
+    PortletModule,
+  ],
 })
 export class CategoryModule {
 }

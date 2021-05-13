@@ -4,6 +4,7 @@ import {FormBuilder, FormGroup, Validators} from '@angular/forms';
 import {CategoriesService} from '../../../@core/services/_service/categories.service';
 import {ToastrService} from 'ngx-toastr';
 import {NgxSpinnerService} from 'ngx-spinner';
+import {CommonUtils} from '../../../@core/services/_service/common-utils.service';
 
 @Component({
   selector: 'ngx-add',
@@ -18,7 +19,7 @@ export class AddComponent implements OnInit {
   formAdd: FormGroup;
   fileName: string;
   pathImage: string;
-  pathDefault = '../../assets/images/downl oad.jfif';
+  pathDefault = '../../assets/images/download.jfif';
 
   constructor(
     private _ngbActiveModal: NgbActiveModal,
@@ -41,7 +42,7 @@ export class AddComponent implements OnInit {
     this.formAdd = this.fb.group({
       name: ['', Validators.required],
       description: [''],
-      link: [''],
+      multipartFile: [''],
       isCurrent: [''],
     });
   }
@@ -58,9 +59,13 @@ export class AddComponent implements OnInit {
         this.spinner.hide();
         if (res.code === 'success') {
           this.toastr.success('Thêm mới thành công');
+          this.close();
         } else {
           this.toastr.warning(res.message);
         }
+      }, error => {
+        this.spinner.hide();
+        // console.log(error.message);
       });
     }
   }
@@ -70,9 +75,12 @@ export class AddComponent implements OnInit {
     const fileName = event.target.value.replace('C:\\fakepath\\', '');
     this.inputFile.nativeElement.value = fileName;
     const render = new FileReader();
-    render.readAsDataURL(event.target.files[0]);
     render.onload = () => {
       this.pathImage = render.result.toString();
     };
+    render.readAsDataURL(event.target.files[0]);
+    this.formAdd.patchValue({
+      multipartFile: event.target.files[0],
+    });
   }
 }
