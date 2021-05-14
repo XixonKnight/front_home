@@ -39,7 +39,6 @@ import { COSMIC_THEME } from './styles/theme.cosmic';
 import { CORPORATE_THEME } from './styles/theme.corporate';
 import { DARK_THEME } from './styles/theme.dark';
 import { SelectorLanguageComponent } from './components/selector-language/selector-language.component';
-import {TranslationModule} from '../@core/i18n/translation.module';
 import {TranslateModule} from '@ngx-translate/core';
 
 const NB_MODULES = [
@@ -55,7 +54,6 @@ const NB_MODULES = [
   NbSelectModule,
   NbIconModule,
   NbEvaIconsModule,
-  TranslationModule,
 ];
 const COMPONENTS = [
   HeaderComponent,

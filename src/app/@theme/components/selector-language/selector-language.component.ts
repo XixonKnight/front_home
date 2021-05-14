@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import {TranslationService} from '../../../@core/i18n/translation.service';
 
 interface LanguageFlag {
   lang: string;
@@ -31,7 +30,6 @@ export class SelectorLanguageComponent implements OnInit {
   ];
 
   constructor(
-    private translationService: TranslationService,
   ) { }
 
   ngOnInit(): void {
@@ -51,11 +49,9 @@ export class SelectorLanguageComponent implements OnInit {
         language.active = false;
       }
     });
-    this.translationService.setLanguage(lang);
   }
 
   setSelectedLanguage(): any {
-    this.setLanguage(this.translationService.getSelectedLanguage());
   }
 
   changeTheme(themeName: string) {
