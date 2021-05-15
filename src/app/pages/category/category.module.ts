@@ -4,9 +4,10 @@ import {RouterModule, Routes} from '@angular/router';
 import {CategoryComponent} from './category.component';
 import { AddComponent } from './add/add.component';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
-import {NgxSpinnerModule} from "ngx-spinner";
-import {TableModule} from "primeng/table";
-import {PortletModule} from "../../shares/portlet/portlet.module";
+import {NgxSpinnerModule} from 'ngx-spinner';
+import {TableModule} from 'primeng/table';
+import {PortletModule} from '../../shares/portlet/portlet.module';
+import {TranslateModule} from '@ngx-translate/core';
 
 const routes: Routes = [
   {
@@ -32,6 +33,7 @@ const routes: Routes = [
     NgxSpinnerModule,
     TableModule,
     PortletModule,
+    TranslateModule,
   ],
 })
 export class CategoryModule {

@@ -1,10 +1,5 @@
-import {Component, OnInit} from '@angular/core';
-import {
-  FacebookLoginProvider,
-  GoogleLoginProvider,
-  SocialAuthService,
-  SocialUser,
-} from 'angularx-social-login';
+import {Component, OnInit, ViewEncapsulation} from '@angular/core';
+import {FacebookLoginProvider, GoogleLoginProvider, SocialAuthService, SocialUser,} from 'angularx-social-login';
 import {Router} from '@angular/router';
 import {TokenService} from '../../@core/services/_service/auth/token.service';
 import {AuthService} from '../../@core/services/_service/auth/auth.service';
@@ -17,6 +12,7 @@ import {NgxSpinnerService} from 'ngx-spinner';
   selector: 'ngx-login',
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.scss'],
+  encapsulation: ViewEncapsulation.None,
 })
 export class LoginComponent implements OnInit {
 

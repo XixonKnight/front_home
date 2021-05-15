@@ -30,6 +30,8 @@ import {
 } from 'angularx-social-login';
 import {ToastrModule} from 'ngx-toastr';
 import {ReactiveFormsModule} from '@angular/forms';
+import {TranslateHttpLoader} from '@ngx-translate/http-loader';
+import { TranslateLoader, TranslateModule } from '@ngx-translate/core';
 
 const configToast: any = {
   timeOut: 2000,
@@ -38,6 +40,11 @@ const configToast: any = {
   progressBar: true,
   progressAnimation: 'increasing',
 };
+
+// AOT compilation support
+export function httpTranslateLoader(http: HttpClient) {
+  return new TranslateHttpLoader(http, './assets/i18n/', '.json');
+}
 
 // @ts-ignore
 @NgModule({
@@ -53,9 +60,6 @@ const configToast: any = {
     NbDialogModule.forRoot(),
     NbWindowModule.forRoot(),
     NbToastrModule.forRoot(),
-    NbChatModule.forRoot({
-      messageGoogleMapKey: 'AIzaSyA_wNuCzia92MAmdLRzmqitRGvCF7wCZPY',
-    }),
     CoreModule.forRoot(),
     ThemeModule.forRoot(),
     SharesModule,
@@ -63,6 +67,13 @@ const configToast: any = {
     SocialLoginModule,
     ToastrModule.forRoot(configToast),
     ReactiveFormsModule,
+    TranslateModule.forRoot({
+      loader: {
+        provide: TranslateLoader,
+        useFactory: httpTranslateLoader,
+        deps: [HttpClient],
+      },
+    }),
   ],
   bootstrap: [AppComponent],
   providers: [
@@ -90,6 +101,11 @@ const configToast: any = {
       } as SocialAuthServiceConfig,
     },
   ],
+  // exports: [
+  //   TranslateModule,
+  // ],
 })
 export class AppModule  {
 }
+
+

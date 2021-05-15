@@ -7,29 +7,32 @@
 <div class="modal-body">
   <form [formGroup]="formAdd">
     <div class="form-group">
-      <label for="name" class="required">Category Name</label>
+      <label for="name" class="required">{{'title.category.name'|translate}}</label>
       <input type="text"
              class="form-control shadow-none" id="name"
              formControlName="name"
              placeholder="">
       <small *ngIf="f['name'].errors?.required && isSubmitted"
-             class="text-danger">Category name is required
+             class="text-danger">
+        {{'title.category.name.required'|translate}}
       </small>
     </div>
     <div class="row d-flex flex-row">
       <div class="col-md-8">
-        <p>Image</p>
+        <p>{{'title.image' | translate}}</p>
         <input type="file" name="img[]" #file class="file"
                (change)="processSelectFile($event)"
                accept="image/*">
         <div class="input-group my-3">
           <input type="text" class="form-control"
-                 disabled placeholder="Upload File"
+                 disabled
+                 [placeholder]="'title.placeholder.uploadFile' | translate"
                  #inputFile
                  id="file">
           <div class="input-group-append">
             <button type="button" class="browse btn btn-primary"
-                    (click)="file.click()">Browse...
+                    (click)="file.click()">
+              {{'title.button.browse' | translate}}
             </button>
           </div>
         </div>
@@ -41,7 +44,7 @@
     </div>
 
     <div class="form-group d-flex flex-column">
-      <label for="description">Description</label>
+      <label for="description">{{'title.table.description' | translate}}</label>
       <textarea id="description"
                 name="description"
                 class="shadow-none form-control"
@@ -53,8 +56,8 @@
   </form>
 </div>
 <div class="modal-footer pr-5">
-  <button type="button" class="btn btn-info mr-4" (click)="close()">Cancel</button>
-  <button type="button" class="btn btn-danger" (click)="processAdd()">Save</button>
+  <button type="button" class="btn btn-info mr-4" (click)="close()">{{'title.button.cancel' | translate}}</button>
+  <button type="button" class="btn btn-danger" (click)="processAdd()">{{'title.button.save' | translate}}</button>
 </div>
 
 <ngx-spinner

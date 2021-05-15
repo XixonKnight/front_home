@@ -1,104 +1,123 @@
 <div class="card2 card border-0 px-4 px-sm-5 py-5">
   <small class="text-right mb-3">
     <a routerLink="../login">
-      <u>I already have an account</u>
+      <u>{{'title.account.have' | translate}}</u>
     </a>
   </small>
-  <h3 class="mb-1">Sign up to izylearning</h3>
-  <p class="mb-4 text-sm">Create our account and start learning with thousands of courses</p>
+  <h3 class="mb-1">{{'title.account.sign' | translate}}</h3>
+  <!--  <p class="mb-4 text-sm">Create our account and start learning with thousands of courses</p>-->
   <form [formGroup]="formRegister">
     <div class="row mt-3">
       <div class="col-md-6">
         <label class="mb-0">
-          <h6 class="mb-0 text-sm required">First name</h6>
+          <h6 class="mb-0 text-sm required">{{'title.account.firstname'| translate}}</h6>
         </label>
         <input type="text"
                class="mb-1 "
                formControlName="firstName"
                name="fname" placeholder="First name">
         <small *ngIf="f['firstName'].errors?.required && isSubmitted"
-               class="text-danger">First name is Required
+               class="text-danger">
+          {{'title.account.firstname.required'| translate}}
         </small>
       </div>
       <div class="col-md-6">
         <label class="mb-0">
-          <h6 class="mb-0 text-sm required">Last name</h6>
+          <h6 class="mb-0 text-sm required">{{'title.account.lastname'| translate}}</h6>
         </label>
         <input type="text"
                class="mb-1"
                formControlName="lastName"
                name="lname" placeholder="Last name">
         <small *ngIf="f['lastName'].errors?.required && isSubmitted"
-               class="text-danger">Last name is Required
+               class="text-danger">
+          {{'title.account.lastname.required'| translate}}
         </small>
       </div>
     </div>
     <div class="row mt-3">
       <div class="col-md-6">
         <label class="mb-0">
-          <h6 class="mb-0 text-sm required">Username</h6>
+          <h6 class="mb-0 text-sm required">{{'title.account.username'| translate}}</h6>
         </label>
         <input type="text"
                class="mb-1"
                formControlName="username"
                name="uname" placeholder="Username">
         <small *ngIf="f['username'].errors?.required && isSubmitted"
-               class="text-danger">Username is Required
+               class="text-danger">
+          {{'title.account.username.required'| translate}}
         </small>
       </div>
     </div>
     <div class="row px-3 mt-4">
       <label class="mb-0">
-        <h6 class="mb-0 text-sm required">Email Address</h6>
+        <h6 class="mb-0 text-sm required">{{'title.email.address'| translate}}</h6>
       </label>
       <input type="text"
              formControlName="email"
              class="mb-1"
              name="email" placeholder="john.doe@email.com">
       <small *ngIf="f['email'].errors?.required && isSubmitted"
-             class="text-danger">Email is Required
+             class="text-danger">
+        {{'title.email.required'| translate}}
       </small>
     </div>
     <div class="row px-3 mt-4">
       <label class="mb-0">
-        <h6 class="mb-0 text-sm required">Password</h6>
+        <h6 class="mb-0 text-sm required">{{'title.password.name'| translate}}</h6>
       </label>
       <input type="password" name="password"
              formControlName="password"
              class="mb-1"
              placeholder="&#9679;&#9679;&#9679;&#9679;&#9679;&#9679;&#9679;&#9679;&#9679;&#9679;">
       <small *ngIf="f['password'].errors?.required && isSubmitted"
-             class="text-danger">Password is Required
+             class="text-danger">
+        {{'title.password.required'| translate}}
       </small>
     </div>
   </form>
   <div class="row px-3 mb-3 mt-3">
-    <small class="text-muted">By signing up, you agree our
-      <a href="" class="text-primary">Terms of services</a> and
-      <a href="" class="text-primary">Privacy Policy</a>
+    <small class="text-muted">
+      {{'title.text.register'| translate}}
+      <a href="" class="text-primary">
+        {{'title.text.register.service'| translate}}
+      </a>
+      {{'title.and'| translate}}
+      <a href="" class="text-primary">
+        {{'title.text.register.privacy'| translate}}
+      </a>
     </small>
   </div>
   <div class="row mb-4">
     <div class="col-md-6">
-      <button class="btn btn-blue text-center mb-1 py-2" (click)="onSubmit()">Create Account</button>
+      <button class="btn btn-blue text-center mb-1 py-2" (click)="onSubmit()">
+        {{'title.account.register'| translate}}
+      </button>
     </div>
   </div>
   <div class="row px-3 mb-4">
     <div class="line"></div>
-    <small class="text-muted or text-center">OR</small>
+    <small class="text-muted or text-center">
+      {{'title.or'| translate}}
+    </small>
     <div class="line"></div>
   </div>
   <div class="row text-center">
     <div class="col-sm-6">
       <p class="social-connect">
         <span class="fab fa-facebook-square"></span>
-        <small class="pl-3 pr-1">Sign up with facebook</small>
+        <small class="pl-3 pr-1">
+          {{'title.account.facebook' | translate}}
+        </small>
       </p>
     </div>
     <div class="col-sm-6">
       <p class="social-connect">
         <span class="fab fa-google-plus-g"></span>
-        <small class="pl-3 pr-1">Sign up with google+</small>
+        <small class="pl-3 pr-1">
+          {{'title.account.google' | translate}}
+        </small>
       </p>
     </div>
   </div>
@@ -110,7 +129,9 @@
   color="#fff"
   type="square-jelly-box"
 >
-  <p style="font-size: 20px; color: white">Loading...</p>
+  <p style="font-size: 20px; color: white">
+    {{'title.loading'| translate}}
+  </p>
 </ngx-spinner>
 
 

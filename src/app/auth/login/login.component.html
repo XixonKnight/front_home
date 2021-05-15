@@ -1,60 +1,72 @@
 <div class="card2 card border-0 px-4 px-sm-5 py-5">
-  <h3 class="mb-1">Sign in to admin</h3>
+  <h3 class="mb-1">{{'title.login' | translate}}</h3>
   <form [formGroup]="form">
     <div class="row px-3 mt-3">
       <label class="mb-0">
-        <h6 class="mb-0 text-sm required">Email Address</h6>
+        <h6 class="mb-0 text-sm required">{{'title.email.address' | translate}}</h6>
       </label>
       <input type="email"
              formControlName="email"
              class="mb-1"
              name="email" placeholder="john.doe@email.com">
       <small *ngIf="f['email'].errors?.required && isSubmitted"
-             class="text-danger">Email is Required
+             class="text-danger">
+        {{'title.email.required' | translate}}
       </small>
     </div>
     <div class="row px-3 my-4">
       <label class="mb-0">
-        <h6 class="mb-0 text-sm required">Password</h6>
+        <h6 class="mb-0 text-sm required">{{'title.password.name' | translate}}</h6>
       </label>
       <input type="password" name="password"
              formControlName="password"
              class="mb-1"
              placeholder="&#9679;&#9679;&#9679;&#9679;&#9679;&#9679;&#9679;&#9679;&#9679;&#9679;">
       <small *ngIf="f['password'].errors?.required && isSubmitted"
-             class="text-danger">Password is Required
+             class="text-danger">
+        {{'title.password.required' | translate}}
       </small>
     </div>
   </form>
   <div class="row mb-4">
     <div class="col-md-6">
-      <button class="btn btn-blue text-center mb-1 py-2" (click)="onSubmit()">Login</button>
+      <button class="btn btn-blue text-center mb-1 py-2"
+              (click)="onSubmit()">{{'title.login.submit' | translate}}</button>
     </div>
   </div>
   <div class="row mb-4 flex-column justify-content-center">
     <div class="d-flex justify-content-center links">
-      Don't have an account?<a routerLink="../register">Register</a>
+      {{'title.account.dont' | translate}}
+      <a routerLink="../register">
+        {{'title.account.register' | translate}}
+      </a>
     </div>
     <div class="d-flex justify-content-center">
-      <a href="#">Forgot your password?</a>
+      <a href="#">
+        {{'title.account.forgot' | translate}}
+      </a>
     </div>
   </div>
   <div class="row px-3 mb-4">
     <div class="line"></div>
-    <small class="text-muted or text-center">OR</small>
+    <small class="text-muted or text-center">{{'title.or' | translate}}</small>
     <div class="line"></div>
   </div>
   <div class="row text-center">
     <div class="col-sm-6">
       <p class="social-connect" (click)="signInWithFB()">
         <span class="fab fa-facebook-square"></span>
-        <small class="pl-3 pr-1">Sign in with facebook</small>
+        <small class="pl-3 pr-1">
+          {{'title.account.facebook' | translate}}
+        </small>
       </p>
     </div>
     <div class="col-sm-6">
       <p class="social-connect" (click)="signInWithGoogle()">
         <span class="fab fa-google-plus-g"></span>
-        <small class="pl-3 pr-1">Sign in with google+</small>
+        <small class="pl-3 pr-1">
+          {{'title.account.google' | translate}}
+        </small>
       </p>
     </div>
   </div>

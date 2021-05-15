@@ -15,6 +15,7 @@ import { LoginComponent } from './login/login.component';
 import { RegisterComponent } from './register/register.component';
 import { AuthComponent } from './auth.component';
 import {NgxSpinnerModule} from 'ngx-spinner';
+import {TranslateModule} from "@ngx-translate/core";
 
 
 @NgModule({
@@ -34,6 +35,7 @@ import {NgxSpinnerModule} from 'ngx-spinner';
         NbCardModule,
         NbSpinnerModule,
         NgxSpinnerModule,
+        TranslateModule,
     ],
   declarations: [
   LoginComponent,

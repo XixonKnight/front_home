@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
+import {LanguageService} from '../../../@core/services/_service/language.service';
 
 interface LanguageFlag {
   lang: string;
@@ -30,16 +31,13 @@ export class SelectorLanguageComponent implements OnInit {
   ];
 
   constructor(
-  ) { }
+    private languageService: LanguageService,
+  ) {
+  }
 
   ngOnInit(): void {
   }
-
-  setLanguageWithRefresh(lang) {
-    this.setLanguage(lang);
-    window.location.reload();
-  }
-
+  
   setLanguage(lang) {
     this.languages.forEach((language: LanguageFlag) => {
       if (language.lang === lang) {
@@ -51,11 +49,10 @@ export class SelectorLanguageComponent implements OnInit {
     });
   }
 
-  setSelectedLanguage(): any {
-  }
-
-  changeTheme(themeName: string) {
-    // this.themeService.changeTheme(themeName);
+  changeTheme(lang: any) {
+    this.currentTheme = lang.flag;
+    this.languageService.setLang(lang.lang);
+    window.location.reload();
   }
 
 }

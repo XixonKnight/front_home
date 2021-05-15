@@ -1,13 +1,13 @@
 <kt-portlet>
   <kt-portlet-header [icon]="'pi pi-align-justify'"
                      [class]="'d-flex flex-row'"
-                     [title]="'Categories'">
+                     [title]="'title.category.listCategory' | translate ">
     <ng-container ktPortletTools>
-      <button class="btn btn-success">
-        <i class="pi pi-plus" (click)="add()"></i>
+      <button class="btn btn-success" (click)="add()">
+        <i class="pi pi-plus" ></i>
       </button>
-      <button class="btn btn-danger ml-2">
-        <i class="pi pi-trash" (click)="delete()"></i>
+      <button class="btn btn-danger ml-2" (click)="delete()">
+        <i class="pi pi-trash" ></i>
       </button>
     </ng-container>
   </kt-portlet-header>
@@ -32,11 +32,21 @@
           <th class="text-center">
             <p-tableHeaderCheckbox></p-tableHeaderCheckbox>
           </th>
-          <th class="text-center">Index</th>
-          <th class="text-center">Name</th>
-          <th class="text-center">Description</th>
-          <th class="text-center">isCurrent</th>
-          <th class="text-center">CreatedDate</th>
+          <th class="text-center">
+            {{'title.table.index' | translate}}
+          </th>
+          <th class="text-center">
+            {{'title.table.name' | translate}}
+          </th>
+          <th class="text-center">
+            {{'title.table.description' | translate}}
+          </th>
+          <th class="text-center">
+            {{'title.table.isCurrent' | translate}}
+          </th>
+          <th class="text-center">
+            {{'title.table.createdDate' | translate}}
+          </th>
         </tr>
       </ng-template>
       <ng-template pTemplate="body" let-item let-index="rowIndex+1">
@@ -51,11 +61,11 @@
           <td class="text-center">{{item.createdDate | date:'dd/MM/yyyy'}}</td>
         </tr>
       </ng-template>
-<!--      <ng-template pTemplate="summary">-->
-<!--        <div class="p-d-flex p-ai-center p-jc-between">-->
-<!--          In total there are {{listCategories ? listCategories.length : 0 }} Category.-->
-<!--        </div>-->
-<!--      </ng-template>-->
+      <!--      <ng-template pTemplate="summary">-->
+      <!--        <div class="p-d-flex p-ai-center p-jc-between">-->
+      <!--          In total there are {{listCategories ? listCategories.length : 0 }} Category.-->
+      <!--        </div>-->
+      <!--      </ng-template>-->
     </p-table>
   </kt-portlet-body>
 </kt-portlet>

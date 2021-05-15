@@ -1,7 +1,8 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, Inject, OnInit} from '@angular/core';
 import {NgbModal} from '@ng-bootstrap/ng-bootstrap';
 import {AddComponent} from './add/add.component';
 import {CategoriesService} from '../../@core/services/_service/categories.service';
+import {TranslateService} from '@ngx-translate/core';
 
 @Component({
   selector: 'ngx-category',
@@ -23,6 +24,7 @@ export class CategoryComponent implements OnInit {
   constructor(
     private modal: NgbModal,
     private service: CategoriesService,
+    private translate: TranslateService,
   ) {
   }
 
@@ -41,7 +43,6 @@ export class CategoryComponent implements OnInit {
 
   }
   delete() {
-    console.log(this.selectedProducts);
   }
 
   getList() {
