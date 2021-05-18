@@ -7,7 +7,7 @@ import {NgbActiveModal} from '@ng-bootstrap/ng-bootstrap';
   styleUrls: ['./delete.component.scss'],
 })
 export class DeleteComponent implements OnInit {
-  @Input() guid: any;
+  @Input() objDel: any[];
 
   constructor(
     private modal: NgbActiveModal,

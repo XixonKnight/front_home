@@ -46,6 +46,7 @@ export class CategoryComponent implements OnInit {
 
   delete() {
     const modalRef = this.modal.open(DeleteComponent, this.options);
+    modalRef.componentInstance.objDel = this.lstDel;
     modalRef.result.then(value => {
       if (value === 'success')
         this.getList();
