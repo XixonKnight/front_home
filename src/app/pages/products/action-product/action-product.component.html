@@ -1,0 +1,140 @@
+<kt-portlet>
+  <kt-portlet-header>
+    <ng-container ktPortletIcon>
+      <i class="pi pi-arrow-left" routerLink="../"></i>
+    </ng-container>
+  </kt-portlet-header>
+  <kt-portlet-body>
+    <p class="text-heading">{{'title.product.addNew' | translate}}</p>
+    <div class="p-grid p-m-0">
+      <div class="p-md-6 p-pl-0">
+        <p class="text-title-custom">
+          {{'title.gallery'|translate}}
+          <span class="p-ml-3 p-text-secondary"
+                style="font-size: small; text-transform: none">
+            ({{'title.maxImage' | translate }})
+          </span>
+        </p>
+        <p-fileUpload multiple="multiple"
+                      (onSelect)="onSelect($event)"
+                      (onClear)="processClear()"
+                      (onRemove)="processRemove($event)"
+                      [showUploadButton]="false"
+                      [cancelLabel]="'title.button.cancel' | translate"
+                      [chooseLabel]="'title.button.choose' | translate"
+                      [fileLimit]="8"
+                      accept="image/*">
+        </p-fileUpload>
+      </div>
+      <div class="p-md-6 p-pr-0">
+        <form [formGroup]="form">
+          <div class="p-fluid p-grid">
+            <div class="p-md-6" style="padding: 1rem 0.5rem  !important;">
+              <span class="p-float-label">
+                <input id="name"
+                       type="text"
+                       formControlName="name"
+                       class="form-control"
+                       pInputText>
+                <label for="name" class="required">{{'title.product.name' | translate}}</label>
+              </span>
+              <small *ngIf="isSubmitted && f['name'].errors?.required"
+                     class="p-error text-error p-pl-1">
+                {{'title.product.name.required' | translate}}
+              </small>
+            </div>
+            <div class="p-md-6" style="padding: 1rem 0.5rem !important;">
+              <span class="p-float-label p-input-icon-right">
+<!--                <i [hidden]="isLoadCategory" class="pi pi-spin pi-spinner"></i>-->
+                <p-dropdown
+                  id="categories"
+                  formControlName="guidCategory"
+                  [styleClass]="'p-dropdown-custom'"
+                  [autoDisplayFirst]="false"
+                  [options]="lstCategory"
+                  [optionValue]="'guid'"
+                  optionLabel="name">
+                </p-dropdown>
+                <label for="categories" class="required">{{'title.category.label' | translate}}</label>
+              </span>
+              <small *ngIf="isSubmitted && f['guidCategory'].errors?.required"
+                     class="p-error text-error p-pl-1">
+                {{'title.category.name.required' | translate}}
+              </small>
+            </div>
+            <div class="p-md-6" style="padding: 1rem 0.5rem !important;">
+              <span class="p-float-label">
+                <input id="price"
+                       type="number"
+                       formControlName="price"
+                       class="form-control"
+                       pInputText>
+                <label for="price" class="required">{{'title.price' | translate}}</label>
+              </span>
+              <small *ngIf="isSubmitted && f['price'].errors?.required"
+                     class="p-error text-error p-pl-1">
+                {{'title.price.required' | translate}}
+              </small>
+            </div>
+            <div class="p-md-6" style="padding: 1rem 0.5rem !important;">
+              <span class="p-float-label">
+                <input id="quantity"
+                       type="number"
+                       class="form-control"
+                       formControlName="quantity"
+                       pInputText>
+                <label for="quantity" class="required">{{'title.quantity' | translate}}</label>
+              </span>
+              <small *ngIf="isSubmitted && f['quantity'].errors?.required"
+                     class="p-error text-error p-pl-1">
+                {{'title.quantity.required' | translate}}
+              </small>
+            </div>
+            <div class="p-md-6" style="padding: 1rem 0.5rem !important;">
+              <span class="p-float-label">
+                <p-multiSelect
+                  id="size"
+                  [styleClass]="'p-dropdown-custom'"
+                  formControlName="size"
+                  [options]="lstSize"
+                  [filter]="false"
+                  [attr.disabled]="lstSize.length === 0"
+                  optionLabel="name">
+                </p-multiSelect>
+                <label for="size" class="required">{{'title.size' | translate}}</label>
+              </span>
+              <small *ngIf="isSubmitted && f['size'].errors?.required"
+                     class="p-error text-error p-pl-1">
+                {{'title.size.required' | translate}}
+              </small>
+            </div>
+            <div class="p-md-12" style="padding: 1rem 0.5rem !important;">
+              <span class="p-float-label">
+                <textarea id="description"
+                          class="form-control"
+                          rows="3"
+                          cols="30" pInputTextarea>
+                </textarea>
+                <label for="description">{{'title.description' | translate}}</label>
+              </span>
+            </div>
+          </div>
+          <div class="p-text-center p-mt-3">
+            <button pButton type="button"
+                    (click)="processSubmit()"
+                    [label]="'title.button.submit' | translate">
+            </button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </kt-portlet-body>
+</kt-portlet>
+
+<ngx-spinner
+  bdColor="rgba(51,51,51,0.8)"
+  size="medium"
+  color="#fff"
+  type="square-jelly-box">
+  <p style="font-size: 20px; color: white">{{'title.loading' | translate}}</p>
+</ngx-spinner>

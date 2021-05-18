@@ -5,6 +5,7 @@ import {CategoriesService} from '../../../@core/services/_service/categories.ser
 import {ToastrService} from 'ngx-toastr';
 import {NgxSpinnerService} from 'ngx-spinner';
 import {CommonUtils} from '../../../@core/services/_service/common-utils.service';
+import {TranslateService} from '@ngx-translate/core';
 
 @Component({
   selector: 'ngx-add',
@@ -27,6 +28,7 @@ export class AddComponent implements OnInit {
     private service: CategoriesService,
     private toastr: ToastrService,
     private spinner: NgxSpinnerService,
+    private translate: TranslateService,
   ) {
   }
 
@@ -36,6 +38,7 @@ export class AddComponent implements OnInit {
 
   close() {
     this._ngbActiveModal.close();
+    // this._ngbActiveModal.dismiss('any');
   }
 
   initForm() {
@@ -58,8 +61,10 @@ export class AddComponent implements OnInit {
       this.service.addNew(this.formAdd.value).subscribe(res => {
         this.spinner.hide();
         if (res.code === 'success') {
-          this.toastr.success('Thêm mới thành công');
-          this.close();
+          this.toastr.success(
+            this.translate.instant('message.add.success'),
+          );
+          this._ngbActiveModal.close('success');
         } else {
           this.toastr.warning(res.message);
         }

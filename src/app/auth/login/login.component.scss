@@ -100,17 +100,6 @@ button:focus {
   margin-left: 4px;
 }
 
-.required{
-  position: relative;
-  &:after{
-    content: '*';
-    display: block;
-    color: red;
-    position: absolute;
-    right: -10px;
-    top: 0;
-  }
-}
 
 
 @media screen and (max-width: 991px) {

@@ -4,27 +4,29 @@
                      [title]="'title.category.listCategory' | translate ">
     <ng-container ktPortletTools>
       <button class="btn btn-success" (click)="add()">
-        <i class="pi pi-plus" ></i>
+        <i class="pi pi-plus"></i>
       </button>
-      <button class="btn btn-danger ml-2" (click)="delete()">
-        <i class="pi pi-trash" ></i>
+      <button class="btn btn-danger ml-2" (click)="delete()" [disabled]="lstDel.length === 0">
+        <i class="pi pi-trash"></i>
       </button>
     </ng-container>
   </kt-portlet-header>
   <kt-portlet-body>
     <p-table #ptable [value]="listCategories"
              dataKey="id"
-             [(selection)]="selectedProducts"
+             [(selection)]="lstDel"
              [showCurrentPageReport]="true"
              styleClass="p-datatable-gridlines">
       <ng-template pTemplate="colgroup" let-columns>
         <colgroup>
           <col class="size-1">
           <col class="size-1">
+          <col class="size-1">
+          <col class="size-3">
           <col class="size-2">
-          <col class="size-4">
-          <col class="size-6">
-          <col class="size-6">
+          <col class="size-1">
+          <col class="size-2">
+          <col class="size-9">
         </colgroup>
       </ng-template>
       <ng-template pTemplate="header">
@@ -36,29 +38,45 @@
             {{'title.table.index' | translate}}
           </th>
           <th class="text-center">
+            {{'title.action' | translate}}
+          </th>
+          <th class="text-center">
             {{'title.table.name' | translate}}
           </th>
           <th class="text-center">
-            {{'title.table.description' | translate}}
+            {{'title.image' | translate}}
           </th>
           <th class="text-center">
-            {{'title.table.isCurrent' | translate}}
+            {{'title.status' | translate}}
           </th>
           <th class="text-center">
             {{'title.table.createdDate' | translate}}
           </th>
+          <th class="text-center">
+            {{'title.table.description' | translate}}
+          </th>
         </tr>
       </ng-template>
-      <ng-template pTemplate="body" let-item let-index="rowIndex+1">
+      <ng-template pTemplate="body"
+                   let-item let-index="rowIndex+1">
         <tr>
           <td class="text-center">
             <p-tableCheckbox [value]="item"></p-tableCheckbox>
           </td>
           <td class="text-center">{{index}}</td>
+          <td class="text-center">
+            <i class="pi pi-pencil text-primary cursor-pointer"></i>
+          </td>
           <td class="text-center">{{item.name}}</td>
-          <td class="text-center">{{item.description}}</td>
-          <td class="text-center">{{item.current}}</td>
+          <td class="text-center">{{item.image}}</td>
+          <td class="text-center">
+            <div class="circle-status"
+                  [style.background]="item.current ? '#5cb85c' : '#edf1f7'">
+            </div>
+          </td>
           <td class="text-center">{{item.createdDate | date:'dd/MM/yyyy'}}</td>
+          <td class="text-center">{{item.description}}</td>
+
         </tr>
       </ng-template>
       <!--      <ng-template pTemplate="summary">-->

@@ -13,12 +13,12 @@ export const MENU_ITEMS: NbMenuItem[] = [
   },
   {
     title: 'Products',
-    icon: 'production_outline',
+    icon: 'layers-outline',
     link: '/pages/products',
   },
   {
     title: 'Category',
-    icon: 'production_outline',
+    icon: 'keypad-outline',
     link: '/pages/category',
   },
   {

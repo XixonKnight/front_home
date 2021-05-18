@@ -47,13 +47,38 @@ export class CommonUtils {
     return value ? 1 : 0;
   }
 
+  // public static convertFormFile(dataPost: any): FormData {
+  //   const formData = new FormData();
+  //   for (const key of Object.keys(dataPost)) {
+  //     const value = dataPost[key];
+  //     formData.append(key, value);
+  //   }
+  //   return formData;
+  //
+  // }
+
   public static convertFormFile(dataPost: any): FormData {
+    // const filteredData = CommonUtils.convertData(dataPost);
+    const formData = CommonUtils.objectToFormData(dataPost);
+    return formData;
+  }
+
+  public static objectToFormData(form): FormData {
     const formData = new FormData();
-    for (const key of Object.keys(dataPost)) {
-      const value = dataPost[key];
-      formData.append(key, value);
+    for (const key of Object.keys(form)) {
+      const value = form[key];
+      if (typeof value === typeof []) {
+        if (value instanceof File) {
+          formData.append(key, value);
+        } else {
+          for (let i = 0; i < value.length; i++) {
+            formData.append(key, value[i]);
+          }
+        }
+      } else {
+        formData.append(key, value);
+      }
     }
     return formData;
-
   }
 }

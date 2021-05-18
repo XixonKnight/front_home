@@ -1,9 +1,20 @@
 {
-  "title.category.listCategory": "Danh sách loại sản phẩm",
+
   "title.login": "Đăng nhập",
   "title.or": "HOẶC",
   "title.and": "và",
   "title.image": "Ảnh",
+  "title.price":"Giá",
+  "title.price.required": "Giá không được để trống",
+  "title.maxImage": "tối đa 8 ảnh",
+  "title.quantity":"Số lượng",
+  "title.action": "Hành động",
+  "title.status": "Status",
+  "title.quantity.required":"Số lượng không được để trống",
+  "title.size":"Kích thước",
+  "title.size.required":"Kích thước không được để trống",
+  "title.gallery": "Bộ sưu tập",
+  "title.description": "Mô tả",
   "title.loading": "Vui lòng chờ...",
   "title.text.register": "Bằng cách đăng ký, bạn đồng ý",
   "title.text.register.service": "Điều khoản dịch vụ",
@@ -31,16 +42,35 @@
   "title.table.description": "Mô tả",
   "title.table.isCurrent": "Trạng thái",
   "title.table.createdDate": "Ngày tạo",
-  "title.category.name": "Tên loại sản phẩm",
-  "title.category.name.required": "Tên loại sản phẩm không được để trống",
   "sidebar.dashboard": "Bảng điều khiển",
   "sidebar.users": "Người dùng",
   "sidebar.products": "Sản phẩm",
   "sidebar.category": "Loại sản phẩm",
   "title.placeholder.uploadFile": "Tải tệp lên",
+
+
+
   "title.button.browse": "Duyệt....",
+  "title.button.choose": "Lựa chọn",
   "title.button.save": "Lưu",
   "title.button.delete": "Xóa",
-  "title.button.cancel": "Hủy"
+  "title.button.cancel": "Hủy",
+  "title.button.submit": "Lưu",
 
+
+  "title.product.listProduct": "Danh sách các sản phẩm",
+  "title.product.addNew": "Thêm mới sản phẩm",
+  "title.product.name": "Tên sản phẩm",
+  "title.product.name.required": "Tên sản phẩm không được để trống",
+
+
+
+  "title.category.listCategory": "Danh sách loại sản phẩm",
+  "title.category.label": "Loại sản phẩm",
+  "title.category.name": "Tên loại sản phẩm",
+  "title.category.name.required": "Tên loại sản phẩm không được để trống",
+  "title.category.addTitle": "Thêm mới loại sản phẩm",
+
+  "message.add.success": "Thêm mới thành công",
+  "message.delete": "Xác nhận xóa?"
 }

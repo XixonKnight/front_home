@@ -3,6 +3,7 @@ import {NgbModal} from '@ng-bootstrap/ng-bootstrap';
 import {AddComponent} from './add/add.component';
 import {CategoriesService} from '../../@core/services/_service/categories.service';
 import {TranslateService} from '@ngx-translate/core';
+import {DeleteComponent} from './delete/delete.component';
 
 @Component({
   selector: 'ngx-category',
@@ -19,7 +20,7 @@ export class CategoryComponent implements OnInit {
   };
 
   listCategories: any[] = [];
-  selectedProducts: any;
+  lstDel: any[] = [];
 
   constructor(
     private modal: NgbModal,
@@ -35,14 +36,22 @@ export class CategoryComponent implements OnInit {
   add() {
     const modalRef = this.modal.open(AddComponent, this.options);
     modalRef.result.then(value => {
-      // console.log(value);
-      this.getList();
-    }).catch(err => {
-      // console.log(err);
+      if (value === 'success')
+        this.getList();
+    }, (reason) => {
+      // this.closeResult = `Dismissed ${this.getDismissReason(reason)}`;
     });
 
   }
+
   delete() {
+    const modalRef = this.modal.open(DeleteComponent, this.options);
+    modalRef.result.then(value => {
+      if (value === 'success')
+        this.getList();
+    }, (reason) => {
+      // this.closeResult = `Dismissed ${this.getDismissReason(reason)}`;
+    });
   }
 
   getList() {

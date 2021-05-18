@@ -8,6 +8,9 @@ import {NgxSpinnerModule} from 'ngx-spinner';
 import {TableModule} from 'primeng/table';
 import {PortletModule} from '../../shares/portlet/portlet.module';
 import {TranslateModule} from '@ngx-translate/core';
+import {MessagesModule} from 'primeng/messages';
+import {MessageModule} from 'primeng/message';
+import { DeleteComponent } from './delete/delete.component';
 
 const routes: Routes = [
   {
@@ -24,6 +27,7 @@ const routes: Routes = [
   declarations: [
     AddComponent,
     CategoryComponent,
+    DeleteComponent,
   ],
   imports: [
     CommonModule,
@@ -34,6 +38,8 @@ const routes: Routes = [
     TableModule,
     PortletModule,
     TranslateModule,
+    MessagesModule,
+    MessageModule,
   ],
 })
 export class CategoryModule {

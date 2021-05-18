@@ -1,10 +1,21 @@
 {
-  "title.category.listCategory": "Categories",
+
   "title.login": "Login",
   "title.or": "OR",
   "title.and": "and",
+  "title.gallery": "GALLERY",
   "title.image": "Image",
+  "title.price":"Price",
+  "title.status": "Status",
+  "title.price.required": "Price is required",
+  "title.maxImage": "max 8 images",
+  "title.action": "Action",
+  "title.quantity":"Quantity",
+  "title.quantity.required":"Quantity is required",
+  "title.size":"Size",
+  "title.size.required":"Size is required",
   "title.loading": "Loading...",
+  "title.description": "Description",
   "title.text.register": "By signing up, you agree our",
   "title.text.register.service": "Terms of services",
   "title.text.register.privacy": "Privacy Policy",
@@ -26,23 +37,39 @@
   "title.account.lastname.required": "Last name is required",
   "title.account.username": "Username",
   "title.account.username.required": "Username is required",
-  "title.table.index": "Index",
+  "title.table.index": "No",
   "title.table.name": "Name",
   "title.table.description": "Description",
   "title.table.isCurrent": "Is Current",
   "title.table.createdDate": "Created Date",
-  "title.category.name": "Category Name",
-  "title.category.name.required": "Category name is required",
   "sidebar.dashboard": "Dashboard",
   "sidebar.users": "User",
   "sidebar.products": "Product",
   "sidebar.category": "Categories",
   "title.placeholder.uploadFile": "Upload file",
+
+
   "title.button.browse": "Browse....",
+  "title.button.choose": "Choose",
   "title.button.save": "Save",
   "title.button.delete": "Delete",
-  "title.button.cancel": "Cancel"
+  "title.button.cancel": "Cancel",
+  "title.button.submit": "Submit",
 
+  "title.product.listProduct": "List Product",
+  "title.product.addNew": "Add new product",
+  "title.product.name": "Name product",
+  "title.product.name.required": "Name product is required",
+
+
+  "title.category.listCategory": "List Category",
+  "title.category.label": "Categories",
+  "title.category.name": "Category Name",
+  "title.category.name.required": "Category name is required",
+  "title.category.addTitle": "Add new category",
+
+  "message.add.success": "Success",
+  "message.delete": "Confirm delete?"
 
 
 }

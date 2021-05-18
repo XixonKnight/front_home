@@ -21,9 +21,11 @@ import {StickyDirective} from '../../../@core/_config/directives/sticky.driectiv
   template: `
     <div class="card-title" [hidden]="noTitle">
 			<span class="card-icon" #refIcon [hidden]="hideIcon || !icon">
-				<ng-content *ngIf="!icon" select="[ktPortletIcon]"></ng-content>
 				<i *ngIf="icon" [ngClass]="icon"></i>
 			</span>
+      <span class="card-icon" #refIcon [hidden]="icon">
+        <ng-content *ngIf="!icon" select="[ktPortletIcon]"></ng-content>
+      </span>
       <ng-content *ngIf="!title" select="[ktPortletTitle]"></ng-content>
       <h3 *ngIf="title" class="card-label" [innerHTML]="title"></h3>
     </div>

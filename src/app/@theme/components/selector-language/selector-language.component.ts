@@ -14,7 +14,7 @@ interface LanguageFlag {
   styleUrls: ['./selector-language.component.scss'],
 })
 export class SelectorLanguageComponent implements OnInit {
-  currentTheme = './assets/media/svg/flags/220-vietnam.svg';
+  currentTheme: string;
 
   language: LanguageFlag;
   languages: LanguageFlag[] = [
@@ -36,17 +36,22 @@ export class SelectorLanguageComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    this.setLanguage();
   }
-  
-  setLanguage(lang) {
-    this.languages.forEach((language: LanguageFlag) => {
-      if (language.lang === lang) {
-        language.active = true;
-        this.language = language;
-      } else {
-        language.active = false;
-      }
-    });
+
+  setLanguage() {
+    const lang = sessionStorage.getItem('lang');
+    if (lang) {
+      this.languages.forEach((language: LanguageFlag) => {
+        if (language.lang === lang) {
+          this.currentTheme = language.flag;
+        }
+      });
+    } else {
+      this.currentTheme = './assets/media/svg/flags/220-vietnam.svg';
+      this.changeTheme('vi');
+    }
+
   }
 
   changeTheme(lang: any) {
