@@ -11,6 +11,7 @@ import {TranslateModule} from '@ngx-translate/core';
 import {MessagesModule} from 'primeng/messages';
 import {MessageModule} from 'primeng/message';
 import { DeleteComponent } from './delete/delete.component';
+import {TooltipModule} from 'primeng/tooltip';
 
 const routes: Routes = [
   {
@@ -29,18 +30,19 @@ const routes: Routes = [
     CategoryComponent,
     DeleteComponent,
   ],
-  imports: [
-    CommonModule,
-    FormsModule,
-    RouterModule.forChild(routes),
-    ReactiveFormsModule,
-    NgxSpinnerModule,
-    TableModule,
-    PortletModule,
-    TranslateModule,
-    MessagesModule,
-    MessageModule,
-  ],
+    imports: [
+        CommonModule,
+        FormsModule,
+        RouterModule.forChild(routes),
+        ReactiveFormsModule,
+        NgxSpinnerModule,
+        TableModule,
+        PortletModule,
+        TranslateModule,
+        MessagesModule,
+        MessageModule,
+        TooltipModule,
+    ],
 })
 export class CategoryModule {
 }

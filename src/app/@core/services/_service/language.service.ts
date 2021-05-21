@@ -17,7 +17,7 @@ export class LanguageService {
   setInitState() {
     this.translateService.addLangs(['en', 'vi']);
     const browserLang = sessionStorage.getItem('lang');
-    if (!browserLang) {
+    if (!browserLang || browserLang === 'undefined') {
       this.setLang('vi');
     } else {
       this.setLang(browserLang);

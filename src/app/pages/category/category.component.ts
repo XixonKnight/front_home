@@ -11,16 +11,15 @@ import {DeleteComponent} from './delete/delete.component';
   styleUrls: ['./category.component.scss'],
 })
 export class CategoryComponent implements OnInit {
-
+  total: any;
+  listCategories: any[] = [];
+  lstDel: any[] = [];
   options: any = {
     backdrop: 'static',
     keyboard: false,
-    centered: true,
     size: 'lg',
+    centered: true,
   };
-
-  listCategories: any[] = [];
-  lstDel: any[] = [];
 
   constructor(
     private modal: NgbModal,
@@ -30,15 +29,14 @@ export class CategoryComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.getList();
   }
 
   add() {
     const modalRef = this.modal.open(AddComponent, this.options);
     modalRef.result.then(value => {
-      if (value === 'success')
-        this.getList();
-    }, (reason) => {
+      //   if (value === 'success')
+      //     this.getList();
+      // }, (reason) => {
       // this.closeResult = `Dismissed ${this.getDismissReason(reason)}`;
     });
 
@@ -48,18 +46,26 @@ export class CategoryComponent implements OnInit {
     const modalRef = this.modal.open(DeleteComponent, this.options);
     modalRef.componentInstance.objDel = this.lstDel;
     modalRef.result.then(value => {
-      if (value === 'success')
-        this.getList();
-    }, (reason) => {
+      // if (value === 'success');
+      //   // this.getList();
+      //   }, (reason) => {
       // this.closeResult = `Dismissed ${this.getDismissReason(reason)}`;
     });
   }
 
-  getList() {
-    this.service.getList().subscribe(res => {
-      if (res.code === 'success') {
-        this.listCategories = res.data;
-      }
+  // getList() {
+  //   this.service.getList().subscribe(res => {
+  //     // if (res.code === 'success') {
+  //     this.listCategories = res.data;
+  //     // console.log(res.data);
+  //     this.total = res.recordsTotal;
+  //   });
+  // }
+
+  public processSearch(event: any) {
+    this.service.search(null, event).subscribe(res => {
+      this.listCategories = res.data;
+      this.total = res.recordsTotal;
     });
   }
 }

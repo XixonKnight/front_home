@@ -55,6 +55,9 @@
   "title.button.delete": "Delete",
   "title.button.cancel": "Cancel",
   "title.button.submit": "Submit",
+  "title.button.new": "New",
+  "title.button.edit": "Edit",
+
 
   "title.product.listProduct": "List Product",
   "title.product.addNew": "Add new product",

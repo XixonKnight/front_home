@@ -5,6 +5,7 @@
   "title.and": "và",
   "title.image": "Ảnh",
   "title.price":"Giá",
+  "title.edit": "Thêm mới",
   "title.price.required": "Giá không được để trống",
   "title.maxImage": "tối đa 8 ảnh",
   "title.quantity":"Số lượng",
@@ -56,6 +57,9 @@
   "title.button.delete": "Xóa",
   "title.button.cancel": "Hủy",
   "title.button.submit": "Lưu",
+  "title.button.new": "Thêm mới",
+  "title.button.edit": "Sửa",
+
 
 
   "title.product.listProduct": "Danh sách các sản phẩm",

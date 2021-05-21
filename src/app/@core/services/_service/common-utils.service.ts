@@ -1,4 +1,5 @@
 import {Injectable} from '@angular/core';
+import {HttpParameterCodec, HttpParams} from '@angular/common/http';
 
 @Injectable({
   providedIn: 'root',
@@ -14,6 +15,19 @@ export class CommonUtils {
       return CommonUtils.convertBoolean(data);
     }
     return data;
+  }
+
+  public static buildParams(obj: any): HttpParams {
+    return Object.entries(obj || {})
+      .reduce((params, [key, value]) => {
+        if (value === null) {
+          return params.set(key, String(''));
+        } else if (typeof value === typeof {}) {
+          return params.set(key, JSON.stringify(value));
+        } else {
+          return params.set(key, String(value));
+        }
+      }, new HttpParams({encoder: new CustomEncoder()}));
   }
 
   /**
@@ -80,5 +94,23 @@ export class CommonUtils {
       }
     }
     return formData;
+  }
+}
+
+class CustomEncoder implements HttpParameterCodec {
+  encodeKey(key: string): string {
+    return encodeURIComponent(key);
+  }
+
+  encodeValue(value: string): string {
+    return encodeURIComponent(value);
+  }
+
+  decodeKey(key: string): string {
+    return decodeURIComponent(key);
+  }
+
+  decodeValue(value: string): string {
+    return decodeURIComponent(value);
   }
 }

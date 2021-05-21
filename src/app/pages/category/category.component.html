@@ -3,7 +3,9 @@
                      [class]="'d-flex flex-row'"
                      [title]="'title.category.listCategory' | translate ">
     <ng-container ktPortletTools>
-      <button class="btn btn-success" (click)="add()">
+      <button class="btn btn-success" (click)="add()"
+              tooltipPosition="bottom"
+              pTooltip="{{'title.button.new' | translate}}">
         <i class="pi pi-plus"></i>
       </button>
       <button class="btn btn-danger ml-2" (click)="delete()" [disabled]="lstDel.length === 0">
@@ -13,9 +15,13 @@
   </kt-portlet-header>
   <kt-portlet-body>
     <p-table #ptable [value]="listCategories"
+             [paginator]="listCategories.length"
+             [rows]="5"
+             [totalRecords]="total"
+             (onLazyLoad)="processSearch($event)"
              dataKey="id"
+             [lazy]="true"
              [(selection)]="lstDel"
-             [showCurrentPageReport]="true"
              styleClass="p-datatable-gridlines">
       <ng-template pTemplate="colgroup" let-columns>
         <colgroup>
@@ -65,7 +71,9 @@
           </td>
           <td class="text-center">{{index}}</td>
           <td class="text-center">
-            <i class="pi pi-pencil text-primary cursor-pointer"></i>
+            <i class="pi pi-pencil text-primary cursor-pointer"
+               pTooltip="{{'title.button.edit' | translate}}">
+            </i>
           </td>
           <td class="text-center">{{item.name}}</td>
           <td class="text-center">{{item.image}}</td>
@@ -76,14 +84,8 @@
           </td>
           <td class="text-center">{{item.createdDate | date:'dd/MM/yyyy'}}</td>
           <td class="text-center">{{item.description}}</td>
-
         </tr>
       </ng-template>
-      <!--      <ng-template pTemplate="summary">-->
-      <!--        <div class="p-d-flex p-ai-center p-jc-between">-->
-      <!--          In total there are {{listCategories ? listCategories.length : 0 }} Category.-->
-      <!--        </div>-->
-      <!--      </ng-template>-->
     </p-table>
   </kt-portlet-body>
 </kt-portlet>
