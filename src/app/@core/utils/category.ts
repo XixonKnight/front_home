@@ -5,4 +5,6 @@ export class Category {
   description?: string;
   isCurrent?: boolean;
   createdDate?: string;
+  urlImg?: string;
+  fileName?: string;
 }

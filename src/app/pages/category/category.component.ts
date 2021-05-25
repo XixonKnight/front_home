@@ -1,9 +1,11 @@
 import {Component, Inject, OnInit} from '@angular/core';
 import {NgbModal} from '@ng-bootstrap/ng-bootstrap';
-import {AddComponent} from './add/add.component';
+import {ActionCategoryComponent} from './action-category/action-category.component';
 import {CategoriesService} from '../../@core/services/_service/categories.service';
 import {TranslateService} from '@ngx-translate/core';
 import {DeleteComponent} from './delete/delete.component';
+import {DEFAULT_MODAL_OPTIONS} from '../../@core/app-config';
+import {Category} from '../../@core/utils/category';
 
 @Component({
   selector: 'ngx-category',
@@ -12,14 +14,8 @@ import {DeleteComponent} from './delete/delete.component';
 })
 export class CategoryComponent implements OnInit {
   total: any;
-  listCategories: any[] = [];
-  lstDel: any[] = [];
-  options: any = {
-    backdrop: 'static',
-    keyboard: false,
-    size: 'lg',
-    centered: true,
-  };
+  listCategories: Array<Category> = [];
+  lstDel: Array<Category> = [];
 
   constructor(
     private modal: NgbModal,
@@ -31,41 +27,49 @@ export class CategoryComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  reset() {
+    this.lstDel = [];
+    this.processSearchData(null);
+  }
+
   add() {
-    const modalRef = this.modal.open(AddComponent, this.options);
+    const modalRef = this.modal.open(ActionCategoryComponent, DEFAULT_MODAL_OPTIONS);
+    modalRef.componentInstance.action = true;
     modalRef.result.then(value => {
-      //   if (value === 'success')
-      //     this.getList();
-      // }, (reason) => {
+      if (value === 'success')
+        this.reset();
+    }, (reason) => {
       // this.closeResult = `Dismissed ${this.getDismissReason(reason)}`;
     });
 
   }
 
   delete() {
-    const modalRef = this.modal.open(DeleteComponent, this.options);
+    const modalRef = this.modal.open(DeleteComponent, DEFAULT_MODAL_OPTIONS);
     modalRef.componentInstance.objDel = this.lstDel;
     modalRef.result.then(value => {
-      // if (value === 'success');
-      //   // this.getList();
-      //   }, (reason) => {
+      if (value === 'success') {
+        this.reset();
+      }
+    }, (reason) => {
       // this.closeResult = `Dismissed ${this.getDismissReason(reason)}`;
     });
   }
 
-  // getList() {
-  //   this.service.getList().subscribe(res => {
-  //     // if (res.code === 'success') {
-  //     this.listCategories = res.data;
-  //     // console.log(res.data);
-  //     this.total = res.recordsTotal;
-  //   });
-  // }
+  processEdit(item: any) {
+    const modalRef = this.modal.open(ActionCategoryComponent, DEFAULT_MODAL_OPTIONS);
+    modalRef.componentInstance.category = item;
+    modalRef.componentInstance.action = false;
+  }
 
-  public processSearch(event: any) {
+  processSearchData(event?: any) {
     this.service.search(null, event).subscribe(res => {
       this.listCategories = res.data;
       this.total = res.recordsTotal;
     });
+  }
+
+  public processSearch(event: any) {
+    this.processSearchData(event);
   }
 }

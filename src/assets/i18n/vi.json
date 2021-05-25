@@ -10,7 +10,7 @@
   "title.maxImage": "tối đa 8 ảnh",
   "title.quantity":"Số lượng",
   "title.action": "Hành động",
-  "title.status": "Status",
+  "title.status": "Trạng thái",
   "title.quantity.required":"Số lượng không được để trống",
   "title.size":"Kích thước",
   "title.size.required":"Kích thước không được để trống",
@@ -66,6 +66,9 @@
   "title.product.addNew": "Thêm mới sản phẩm",
   "title.product.name": "Tên sản phẩm",
   "title.product.name.required": "Tên sản phẩm không được để trống",
+  "title.product.category": "Loại sản phẩm",
+
+
 
 
 
@@ -74,7 +77,12 @@
   "title.category.name": "Tên loại sản phẩm",
   "title.category.name.required": "Tên loại sản phẩm không được để trống",
   "title.category.addTitle": "Thêm mới loại sản phẩm",
+  "title.category.editTitle": "Chỉnh sửa loại sản phẩm",
 
   "message.add.success": "Thêm mới thành công",
-  "message.delete": "Xác nhận xóa?"
+  "message.delete": "Xác nhận xóa?",
+  "message.delete.success": "Xóa thành công",
+  "record.deleted": "Bản ghi đã bị xóa",
+  "message.noRecords": "Không tồn tại bản ghi"
+
 }

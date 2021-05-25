@@ -72,11 +72,15 @@
           <td class="text-center">{{index}}</td>
           <td class="text-center">
             <i class="pi pi-pencil text-primary cursor-pointer"
+               (click)="processEdit(item)"
                pTooltip="{{'title.button.edit' | translate}}">
             </i>
           </td>
           <td class="text-center">{{item.name}}</td>
-          <td class="text-center">{{item.image}}</td>
+          <td class="text-center">
+            <img class="img-responsive image-resize rounded" width="50px" height="50px"
+                 [src]="item.urlImg" alt="">
+          </td>
           <td class="text-center">
             <div class="circle-status"
                   [style.background]="item.current ? '#5cb85c' : '#edf1f7'">
@@ -85,6 +89,14 @@
           <td class="text-center">{{item.createdDate | date:'dd/MM/yyyy'}}</td>
           <td class="text-center">{{item.description}}</td>
         </tr>
+      </ng-template>
+      <ng-template pTemplate="emptymessage">
+        <tr class="empty_message">
+          <td [attr.colspan]="8" [innerHTML]="'message.noRecords' | translate">
+          </td>
+        </tr>
+      </ng-template>
+      <ng-template pTemplate="paginatorleft" let-state>
       </ng-template>
     </p-table>
   </kt-portlet-body>

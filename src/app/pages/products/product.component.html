@@ -17,5 +17,58 @@
     </ng-container>
   </kt-portlet-header>
   <kt-portlet-body>
+    <p-table [value]="listData"
+             [paginator]="listData.length"
+             [rows]="5"
+             [totalRecords]="total"
+             (onLazyLoad)="processSearch($event)"
+             dataKey="id"
+             [lazy]="true"
+             [(selection)]="lstDel"
+             styleClass="p-datatable-gridlines">
+      <ng-template pTemplate="colgroup" let-columns>
+<!--        <colgroup>-->
+<!--          <col class="size-1">-->
+<!--          <col class="size-1">-->
+<!--          <col class="size-1">-->
+<!--          <col class="size-3">-->
+<!--          <col class="size-2">-->
+<!--          <col class="size-1">-->
+<!--          <col class="size-2">-->
+<!--          <col class="size-9">-->
+<!--        </colgroup>-->
+      </ng-template>
+      <ng-template pTemplate="header">
+        <tr>
+          <th class="text-center">
+            <p-tableHeaderCheckbox></p-tableHeaderCheckbox>
+          </th>
+          <th class="text-center">
+            {{'title.table.index' | translate}}
+          </th>
+          <th class="text-center">
+            {{'title.action' | translate}}
+          </th>
+          <th class="text-center">
+            {{'title.table.name' | translate}}
+          </th>
+          <th class="text-center">
+            {{'title.image' | translate}}
+          </th>
+          <th class="text-center">
+            {{'title.product.category' | translate}}
+          </th>
+          <th class="text-center">
+            {{'title.status' | translate}}
+          </th>
+          <th class="text-center">
+            {{'title.table.createdDate' | translate}}
+          </th>
+          <th class="text-center">
+            {{'title.table.description' | translate}}
+          </th>
+        </tr>
+      </ng-template>
+    </p-table>
   </kt-portlet-body>
 </kt-portlet>

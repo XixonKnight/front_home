@@ -63,6 +63,7 @@
   "title.product.addNew": "Add new product",
   "title.product.name": "Name product",
   "title.product.name.required": "Name product is required",
+  "title.product.category": "Category",
 
 
   "title.category.listCategory": "List Category",
@@ -70,9 +71,11 @@
   "title.category.name": "Category Name",
   "title.category.name.required": "Category name is required",
   "title.category.addTitle": "Add new category",
+  "title.category.editTitle": "Edit category",
 
   "message.add.success": "Success",
-  "message.delete": "Confirm delete?"
-
-
+  "message.delete": "Confirm delete?",
+  "record.deleted": "Record has been delete",
+  "message.delete.success": "Delete success",
+  "message.noRecords": "No records"
 }

@@ -352,3 +352,21 @@
   height: 16px;
   border-radius: 50%;
 }
+
+.image-resize{
+  object-fit: cover !important;
+  object-position: center center;
+}
+
+.file {
+  visibility: hidden;
+  position: absolute;
+}
+.p-col{
+  padding: 1rem 0.5rem  !important;
+}
+
+.empty_message{
+  color: red !important;
+  font-style: italic !important;
+}

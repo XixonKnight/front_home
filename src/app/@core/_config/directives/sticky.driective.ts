@@ -319,7 +319,7 @@ function getPosition(el) {
     let element = el;
 
     // Loop through the DOM tree
-    // and add it's parent's offset to get page offset
+    // and action-category it's parent's offset to get page offset
     do {
         top += element.offsetTop || 0;
         left += element.offsetLeft || 0;

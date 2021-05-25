@@ -84,7 +84,7 @@ export class CommonUtils {
       if (typeof value === typeof []) {
         if (value instanceof File) {
           formData.append(key, value);
-        } else {
+        } else if (value instanceof Array) {
           for (let i = 0; i < value.length; i++) {
             formData.append(key, value[i]);
           }

@@ -59,7 +59,7 @@ export class ActionProductComponent implements OnInit {
   }
 
   getListCategory() {
-    this.categoryService.getList().subscribe(res => {
+    this.categoryService.findAllCategories().subscribe(res => {
       this.isLoadCategory = true;
       this.lstCategory = res.data;
     });

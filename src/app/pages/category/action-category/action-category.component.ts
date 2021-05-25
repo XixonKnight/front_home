@@ -1,26 +1,28 @@
-import {Component, ElementRef, HostListener, OnInit, ViewChild} from '@angular/core';
+import {Component, ElementRef, HostListener, Input, OnInit, ViewChild} from '@angular/core';
 import {NgbActiveModal} from '@ng-bootstrap/ng-bootstrap';
 import {FormBuilder, FormGroup, Validators} from '@angular/forms';
 import {CategoriesService} from '../../../@core/services/_service/categories.service';
 import {ToastrService} from 'ngx-toastr';
 import {NgxSpinnerService} from 'ngx-spinner';
-import {CommonUtils} from '../../../@core/services/_service/common-utils.service';
 import {TranslateService} from '@ngx-translate/core';
+import {DatePipe} from '@angular/common';
 
 @Component({
-  selector: 'ngx-add',
-  templateUrl: './add.component.html',
-  styleUrls: ['./add.component.scss'],
+  selector: 'ngx-action',
+  templateUrl: './action-category.component.html',
+  styleUrls: ['./action-category.component.scss'],
 })
-export class AddComponent implements OnInit {
+export class ActionCategoryComponent implements OnInit {
 
   @ViewChild('inputFile') inputFile: ElementRef;
-
+  @Input() category: any;
+  @Input() action: any;
+  formSave: FormGroup;
   isSubmitted = false;
-  formAdd: FormGroup;
   fileName: string;
   pathImage: string;
   pathDefault = '../../assets/images/download.jfif';
+  files: File;
 
   constructor(
     private _ngbActiveModal: NgbActiveModal,
@@ -36,29 +38,45 @@ export class AddComponent implements OnInit {
     this.initForm();
   }
 
+  ngAfterViewInit(): void {
+    this.inputFile.nativeElement.value = this.category.fileName;
+  }
+
   close() {
     this._ngbActiveModal.close();
-    // this._ngbActiveModal.dismiss('any');
   }
 
   initForm() {
-    this.formAdd = this.fb.group({
-      name: ['', Validators.required],
-      description: [''],
-      multipartFile: [''],
-      isCurrent: [''],
-    });
+    if (this.action) {
+      this.formSave = this.fb.group({
+        name: ['', Validators.required],
+        description: [''],
+        multipartFile: [''],
+        isCurrent: [''],
+      });
+    } else {
+      this.pathImage = this.category.urlImg;
+      this.formSave = this.fb.group({
+        id: [this.category.id],
+        guid: [this.category.guid],
+        name: [this.category.name, Validators.required],
+        description: [this.category.description],
+        multipartFile: [this.files],
+        urlImg: [this.category.urlImg],
+        isCurrent: [this.category.current],
+      });
+    }
   }
 
   get f() {
-    return this.formAdd.controls;
+    return this.formSave.controls;
   }
 
-  processAdd() {
+  processSaveOrUpdate() {
     this.isSubmitted = true;
-    if (this.formAdd.valid) {
+    if (this.formSave.valid) {
       this.spinner.show();
-      this.service.addNew(this.formAdd.value).subscribe(res => {
+      this.service.saveOrUpdate(this.formSave.value).subscribe(res => {
         this.spinner.hide();
         if (res.code === 'success') {
           this.toastr.success(
@@ -66,7 +84,9 @@ export class AddComponent implements OnInit {
           );
           this._ngbActiveModal.close('success');
         } else {
-          this.toastr.warning(res.message);
+          this.toastr.warning(
+            this.translate.instant(res.message),
+          );
         }
       }, error => {
         this.spinner.hide();
@@ -76,7 +96,6 @@ export class AddComponent implements OnInit {
   }
 
   processSelectFile(event: any) {
-    // this.pathImage = event.target.value;
     const fileName = event.target.value.replace('C:\\fakepath\\', '');
     this.inputFile.nativeElement.value = fileName;
     const render = new FileReader();
@@ -84,7 +103,7 @@ export class AddComponent implements OnInit {
       this.pathImage = render.result.toString();
     };
     render.readAsDataURL(event.target.files[0]);
-    this.formAdd.patchValue({
+    this.formSave.patchValue({
       multipartFile: event.target.files[0],
     });
   }

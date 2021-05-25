@@ -48,4 +48,13 @@ export class BasicService {
     const url = `${this.serviceUrl}/${id}`;
     return this.http.get(url);
   }
+
+  /**
+   * deleteById
+   * param id
+   */
+  public deleteById(id: number): Observable<any> {
+    const url = `${this.serviceUrl}/delete/${id}`;
+    return this.http.delete(url);
+  }
 }
