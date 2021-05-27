@@ -1,4 +1,4 @@
-import { NbMenuItem } from '@nebular/theme';
+import {NbMenuItem} from '@nebular/theme';
 
 export const MENU_ITEMS: NbMenuItem[] = [
   {
@@ -20,6 +20,27 @@ export const MENU_ITEMS: NbMenuItem[] = [
     title: 'Category',
     icon: 'keypad-outline',
     link: '/pages/category',
+  },
+  {
+    title: 'Options',
+    icon: 'cube-outline',
+    children: [
+      {
+        title: 'Size',
+        icon: 'activity-outline',
+        link: '/pages/options/size',
+      },
+      {
+        title: 'Ice',
+        icon: 'droplet-outline',
+        link: '/pages/options/ice',
+      },
+      {
+        title: 'Topping',
+        icon: 'grid-outline',
+        link: '/pages/options/topping',
+      },
+    ],
   },
   {
     title: 'FEATURES',

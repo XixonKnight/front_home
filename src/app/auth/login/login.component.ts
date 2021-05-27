@@ -56,14 +56,17 @@ export class LoginComponent implements OnInit {
       this.socialUser = data;
       const form = new FormProviderRequest();
       form.token = this.socialUser.idToken;
+      this.spinner.show();
       this.service.google(form).subscribe(
         res => {
+          this.spinner.hide();
           this.tokenService.setToken(res.data.jwt);
           this.router.navigate(['']);
         },
       );
     }).catch(
       err => {
+        this.spinner.hide();
         this.toastr.error(err);
       },
     );

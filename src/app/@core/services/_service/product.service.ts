@@ -4,16 +4,18 @@ import {HttpClient} from '@angular/common/http';
 import {Observable} from 'rxjs';
 import {CommonUtils} from './common-utils.service';
 import {DataResponse} from '../../utils/data-response';
+import {BasicService} from './basic.service';
 
 @Injectable({
   providedIn: 'root',
 })
-export class ProductService {
+export class ProductService extends BasicService {
   private readonly baseUrl = `${environment.apiUrl}product`;
 
   constructor(
-    private http: HttpClient,
+    public http: HttpClient,
   ) {
+    super('baseUrl', 'products', http);
   }
 
   saveOrUpdate(form: any): Observable<DataResponse> {

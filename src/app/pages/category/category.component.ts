@@ -49,7 +49,7 @@ export class CategoryComponent implements OnInit {
     modalRef.componentInstance.objDel = this.lstDel;
     modalRef.result.then(value => {
       if (value === 'success') {
-        this.reset();
+        this.processSearchData(null);
       }
     }, (reason) => {
       // this.closeResult = `Dismissed ${this.getDismissReason(reason)}`;
@@ -60,6 +60,11 @@ export class CategoryComponent implements OnInit {
     const modalRef = this.modal.open(ActionCategoryComponent, DEFAULT_MODAL_OPTIONS);
     modalRef.componentInstance.category = item;
     modalRef.componentInstance.action = false;
+    modalRef.result.then(value => {
+      if (value === 'success')
+        this.reset();
+    }, (reason) => {
+    });
   }
 
   processSearchData(event?: any) {

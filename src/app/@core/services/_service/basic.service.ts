@@ -57,4 +57,9 @@ export class BasicService {
     const url = `${this.serviceUrl}/delete/${id}`;
     return this.http.delete(url);
   }
+
+  public findAllData():Observable<any> {
+    const url = `${this.serviceUrl}/find_all`;
+    return this.http.get(url);
+  }
 }

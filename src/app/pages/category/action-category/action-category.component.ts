@@ -32,6 +32,7 @@ export class ActionCategoryComponent implements OnInit {
     private spinner: NgxSpinnerService,
     private translate: TranslateService,
   ) {
+    spinner.hide();
   }
 
   ngOnInit(): void {
@@ -51,7 +52,7 @@ export class ActionCategoryComponent implements OnInit {
       this.formSave = this.fb.group({
         name: ['', Validators.required],
         description: [''],
-        multipartFile: [''],
+        multipartFile: [this.files],
         isCurrent: [''],
       });
     } else {
@@ -84,8 +85,8 @@ export class ActionCategoryComponent implements OnInit {
           );
           this._ngbActiveModal.close('success');
         } else {
-          this.toastr.warning(
-            this.translate.instant(res.message),
+          this.toastr.error(
+            this.translate.instant(res.code),
           );
         }
       }, error => {

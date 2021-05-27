@@ -39,6 +39,7 @@
   "title.account.username.required": "Username is required",
   "title.table.index": "No",
   "title.table.name": "Name",
+  "title.table.option": "Option name",
   "title.table.description": "Description",
   "title.table.isCurrent": "Is Current",
   "title.table.createdDate": "Created Date",
@@ -46,6 +47,11 @@
   "sidebar.users": "User",
   "sidebar.products": "Product",
   "sidebar.category": "Categories",
+  "sidebar.options": "Options",
+  "sidebar.size": "Size",
+  "sidebar.ice": "Ice",
+  "sidebar.topping": "Topping",
+
   "title.placeholder.uploadFile": "Upload file",
 
 
@@ -64,6 +70,15 @@
   "title.product.name": "Name product",
   "title.product.name.required": "Name product is required",
   "title.product.category": "Category",
+
+  "title.options.ice.list": "Options ice",
+  "title.options.ice.add": "Add new Option Ice",
+  "title.options.ice.edit": "Edit Option Ice",
+
+
+  "exists.name": "Exists name",
+  "exists.option": "Exists option",
+
 
 
   "title.category.listCategory": "List Category",

@@ -1,5 +1,8 @@
 import {Component, OnInit} from '@angular/core';
 import {Category} from '../../@core/utils/category';
+import {ProductService} from '../../@core/services/_service/product.service';
+import {ToastrService} from 'ngx-toastr';
+import {TranslateService} from '@ngx-translate/core';
 
 
 @Component({
@@ -12,7 +15,11 @@ export class ProductComponent implements OnInit {
   listData: any[] = [];
   lstDel: any[] = [];
 
-  constructor() {
+  constructor(
+    private service: ProductService,
+    private toastr: ToastrService,
+    private translate: TranslateService,
+  ) {
   }
 
   ngOnInit(): void {
@@ -21,11 +28,21 @@ export class ProductComponent implements OnInit {
   add() {
   }
 
-  delete() {
+  processDelete() {
   }
 
   processSearch(event: any) {
+    this.processSearchData(event);
+  }
 
+  processSearchData(event?: any) {
+    this.service.search(null, event).subscribe(res => {
+      this.listData = res.data;
+      this.total = res.recordsTotal;
+    });
+  }
+
+  processEdit(item: any) {
   }
 
 }

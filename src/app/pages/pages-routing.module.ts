@@ -44,6 +44,11 @@ const routes: Routes = [{
         .then(m => m.CategoryModule),
     },
     {
+      path: 'options',
+      loadChildren: () => import('./options/options.module')
+        .then(m => m.OptionsModule),
+    },
+    {
       path: '',
       redirectTo: 'dashboard',
       pathMatch: 'full',

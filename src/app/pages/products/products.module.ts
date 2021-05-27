@@ -15,7 +15,8 @@ import {ButtonModule} from 'primeng/button';
 import {FileUploadModule} from 'primeng/fileupload';
 import {ReactiveFormsModule} from '@angular/forms';
 import {NgxSpinnerModule} from 'ngx-spinner';
-import {TableModule} from "primeng/table";
+import {TableModule} from 'primeng/table';
+import {TooltipModule} from 'primeng/tooltip';
 
 const routes: Routes = [
   {
@@ -33,23 +34,24 @@ const routes: Routes = [
     ProductComponent,
     ActionProductComponent,
   ],
-  imports: [
-    CommonModule,
-    RouterModule.forChild(routes),
-    PortletModule,
-    NgxPaginationModule,
-    NgbModule,
-    Ng2SmartTableModule,
-    TranslateModule,
-    DropdownModule,
-    InputTextModule,
-    MultiSelectModule,
-    ButtonModule,
-    FileUploadModule,
-    ReactiveFormsModule,
-    NgxSpinnerModule,
-    TableModule,
-  ],
+    imports: [
+        CommonModule,
+        RouterModule.forChild(routes),
+        PortletModule,
+        NgxPaginationModule,
+        NgbModule,
+        Ng2SmartTableModule,
+        TranslateModule,
+        DropdownModule,
+        InputTextModule,
+        MultiSelectModule,
+        ButtonModule,
+        FileUploadModule,
+        ReactiveFormsModule,
+        NgxSpinnerModule,
+        TableModule,
+        TooltipModule,
+    ],
 })
 export class ProductsModule {
 }

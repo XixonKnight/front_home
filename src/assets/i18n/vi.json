@@ -40,6 +40,7 @@
   "title.account.username.required": "Tên người dùng không được để trống",
   "title.table.index": "TT",
   "title.table.name": "Tên",
+  "title.table.option": "Tên option",
   "title.table.description": "Mô tả",
   "title.table.isCurrent": "Trạng thái",
   "title.table.createdDate": "Ngày tạo",
@@ -47,8 +48,15 @@
   "sidebar.users": "Người dùng",
   "sidebar.products": "Sản phẩm",
   "sidebar.category": "Loại sản phẩm",
+  "sidebar.options": "Lựa chọn",
+  "sidebar.size": "Size",
+  "sidebar.ice": "Đá",
+  "sidebar.topping": "Topping",
   "title.placeholder.uploadFile": "Tải tệp lên",
 
+
+  "exists.name": "Tên đã tồn tại",
+  "exists.option": "Lựa chọn đã tồn tại",
 
 
   "title.button.browse": "Duyệt....",
@@ -68,6 +76,9 @@
   "title.product.name.required": "Tên sản phẩm không được để trống",
   "title.product.category": "Loại sản phẩm",
 
+  "title.options.ice.list": "Danh sách chọn nước đá",
+  "title.options.ice.add": "Thêm mới nước đá",
+  "title.options.ice.eidt": "Chỉnh sửa nước đá",
 
 
 

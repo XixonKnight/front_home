@@ -370,3 +370,9 @@
   color: red !important;
   font-style: italic !important;
 }
+
+.modal-body{
+  .p-radiobutton-label{
+    margin-bottom: 0 !important;
+  }
+}
