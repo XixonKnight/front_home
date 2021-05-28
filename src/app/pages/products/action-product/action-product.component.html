@@ -33,6 +33,7 @@
               <span class="p-float-label">
                 <input id="name"
                        type="text"
+                       [ngClass]="isSubmitted && f['name'].errors?.required ? 'ng-dirty ng-invalid': ''"
                        formControlName="name"
                        class="form-control"
                        pInputText>
@@ -50,6 +51,7 @@
                   id="categories"
                   formControlName="guidCategory"
                   [styleClass]="'p-dropdown-custom'"
+                  [ngClass]="isSubmitted && f['guidCategory'].errors?.required ? 'ng-dirty ng-invalid': ''"
                   [autoDisplayFirst]="false"
                   [options]="lstCategory"
                   [optionValue]="'guid'"
@@ -66,6 +68,7 @@
               <span class="p-float-label">
                 <input id="price"
                        type="number"
+                       [ngClass]="isSubmitted && f['price'].errors?.required ? 'ng-dirty ng-invalid': ''"
                        formControlName="price"
                        class="form-control"
                        pInputText>
@@ -81,6 +84,7 @@
                 <input id="quantity"
                        type="number"
                        class="form-control"
+                       [ngClass]="isSubmitted && f['quantity'].errors?.required ? 'ng-dirty ng-invalid': ''"
                        formControlName="quantity"
                        pInputText>
                 <label for="quantity" class="required">{{'title.quantity' | translate}}</label>
@@ -95,10 +99,12 @@
                 <p-multiSelect
                   id="size"
                   [styleClass]="'p-dropdown-custom'"
+                  [ngClass]="isSubmitted && f['size'].errors?.required ? 'ng-dirty ng-invalid': ''"
                   formControlName="size"
+                  [optionValue]="'guid'"
                   [options]="lstSize"
                   [filter]="false"
-                  [attr.disabled]="lstSize.length === 0"
+                  display="chip"
                   optionLabel="name">
                 </p-multiSelect>
                 <label for="size" class="required">{{'title.size' | translate}}</label>

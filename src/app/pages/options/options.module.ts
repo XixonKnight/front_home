@@ -14,6 +14,10 @@ import {RadioButtonModule} from 'primeng/radiobutton';
 import {InputTextModule} from "primeng/inputtext";
 import {ReactiveFormsModule} from "@angular/forms";
 import { DeleteIceComponent } from './ice/delete-ice/delete-ice.component';
+import { ActionSizeComponent } from './size/action-size/action-size.component';
+import { DeleteSizeComponent } from './size/delete-size/delete-size.component';
+import { ActionToppingComponent } from './topping/action-topping/action-topping.component';
+import { DeleteToppingComponent } from './topping/delete-topping/delete-topping.component';
 
 const routes: Routes = [
   {
@@ -32,7 +36,7 @@ const routes: Routes = [
 
 
 @NgModule({
-  declarations: [SizeComponent, IceComponent, ToppingComponent, ActionIceComponent, DeleteIceComponent],
+  declarations: [SizeComponent, IceComponent, ToppingComponent, ActionIceComponent, DeleteIceComponent, ActionSizeComponent, DeleteSizeComponent, ActionToppingComponent, DeleteToppingComponent],
   imports: [
     CommonModule,
     RouterModule.forChild(routes),

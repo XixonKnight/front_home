@@ -37,10 +37,6 @@ export class IceComponent implements OnInit {
     });
   }
 
-  // public processSearch() {
-  //   this.processSearchData();
-  // }
-
 
   processSearchData() {
     this.service.findAllData().subscribe(res => {

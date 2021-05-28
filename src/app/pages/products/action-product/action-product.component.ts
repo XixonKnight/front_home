@@ -6,6 +6,7 @@ import {ProductService} from '../../../@core/services/_service/product.service';
 import {NgxSpinnerService} from 'ngx-spinner';
 import {Router} from '@angular/router';
 import {ToastrService} from 'ngx-toastr';
+import {OptionSizeService} from '../../../@core/services/_service/option-size.service';
 
 @Component({
   selector: 'ngx-action-product',
@@ -27,25 +28,20 @@ export class ActionProductComponent implements OnInit {
     private spinner: NgxSpinnerService,
     private router: Router,
     private toastr: ToastrService,
+    private sizeService: OptionSizeService,
   ) {
   }
 
   ngOnInit(): void {
     this.getListCategory();
+    this.findAllOptionSize();
     this.initForm();
   }
 
   initForm() {
-    this.lstSize = [
-      {name: 'New York', code: 'NY'},
-      {name: 'Rome', code: 'RM'},
-      {name: 'London', code: 'LDN'},
-      {name: 'Istanbul', code: 'IST'},
-      {name: 'Paris', code: 'PRS'},
-    ];
     this.form = this.fb.group({
       name: ['', Validators.required],
-      guidCategory: ['', {disabled: true}, Validators.required],
+      guidCategory: ['', Validators.required],
       price: ['', Validators.required],
       quantity: ['', Validators.required],
       size: ['', Validators.required],
@@ -65,6 +61,12 @@ export class ActionProductComponent implements OnInit {
     });
   }
 
+  findAllOptionSize() {
+    this.sizeService.findAllData().subscribe(res => {
+      this.lstSize = res.data;
+    });
+  }
+
   onSelect(event) {
     for (const item of event.files) {
       this.images.push(item);
@@ -77,16 +79,17 @@ export class ActionProductComponent implements OnInit {
       fileImages: this.images,
     });
     if (this.form.valid) {
-      this.spinner.show();
-      this.service.saveOrUpdate(this.form.value).subscribe(res => {
-        this.spinner.hide();
-        if (res.code === 'success') {
-          this.toastr.success('Thêm mới thành công');
-          this.router.navigate(['/pages/products']);
-        } else {
-          this.toastr.success(res.message);
-        }
-      });
+      console.log(this.form.value);
+      // this.spinner.show();
+      // this.service.saveOrUpdate(this.form.value).subscribe(res => {
+      //   this.spinner.hide();
+      //   if (res.code === 'success') {
+      //     this.toastr.success('Thêm mới thành công');
+      //     this.router.navigate(['/pages/products']);
+      //   } else {
+      //     this.toastr.success(res.message);
+      //   }
+      // });
     }
   }
 

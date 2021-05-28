@@ -1,5 +1,9 @@
 {
 
+  "currency": "VND",
+
+
+
   "title.login": "Đăng nhập",
   "title.or": "HOẶC",
   "title.and": "và",
@@ -41,6 +45,9 @@
   "title.table.index": "TT",
   "title.table.name": "Tên",
   "title.table.option": "Tên option",
+  "title.table.size": "Kích thước",
+  "title.table.price": "Giá",
+  "title.table.extraPrice": "Giá thêm(%)",
   "title.table.description": "Mô tả",
   "title.table.isCurrent": "Trạng thái",
   "title.table.createdDate": "Ngày tạo",
@@ -49,7 +56,7 @@
   "sidebar.products": "Sản phẩm",
   "sidebar.category": "Loại sản phẩm",
   "sidebar.options": "Lựa chọn",
-  "sidebar.size": "Size",
+  "sidebar.size": "Kích thước",
   "sidebar.ice": "Đá",
   "sidebar.topping": "Topping",
   "title.placeholder.uploadFile": "Tải tệp lên",
@@ -78,8 +85,18 @@
 
   "title.options.ice.list": "Danh sách chọn nước đá",
   "title.options.ice.add": "Thêm mới nước đá",
-  "title.options.ice.eidt": "Chỉnh sửa nước đá",
-
+  "title.options.ice.edit": "Chỉnh sửa nước đá",
+  "title.options.size.list": "Danh sách tùy chọn kích thước",
+  "title.options.size.add": "Thêm mới kích thước",
+  "title.options.size.edit": "Chỉnh sửa kích thước",
+  "title.options.size.name": "Tên kích thước",
+  "title.options.size.extraPrice": "Giá thêm(%)",
+  "title.size.name.required": "Kích thước không được để trống",
+  "title.options.topping.list": "Danh sách topping",
+  "title.options.topping.add": "Thêm mới topping",
+  "title.options.topping.edit": "Chỉnh sửa topping",
+  "title.topping.name.required": "Tên topping không được",
+  "title.topping.name": "Tên topping",
 
 
 
@@ -92,6 +109,7 @@
 
   "message.add.success": "Thêm mới thành công",
   "message.delete": "Xác nhận xóa?",
+  "message.delete.notify": "Thông báo xóa",
   "message.delete.success": "Xóa thành công",
   "record.deleted": "Bản ghi đã bị xóa",
   "message.noRecords": "Không tồn tại bản ghi"

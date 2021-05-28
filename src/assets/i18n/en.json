@@ -1,5 +1,7 @@
 {
 
+  "currency": "USD",
+
   "title.login": "Login",
   "title.or": "OR",
   "title.and": "and",
@@ -40,6 +42,9 @@
   "title.table.index": "No",
   "title.table.name": "Name",
   "title.table.option": "Option name",
+  "title.table.size": "Size",
+  "title.table.price": "Price",
+  "title.table.extraPrice": "Extra price(%)",
   "title.table.description": "Description",
   "title.table.isCurrent": "Is Current",
   "title.table.createdDate": "Created Date",
@@ -71,9 +76,20 @@
   "title.product.name.required": "Name product is required",
   "title.product.category": "Category",
 
-  "title.options.ice.list": "Options ice",
+  "title.options.ice.list": "Options Ice",
   "title.options.ice.add": "Add new Option Ice",
   "title.options.ice.edit": "Edit Option Ice",
+  "title.options.size.list": "Options Size",
+  "title.options.size.add": "Add new Option Size",
+  "title.options.size.edit": "Edit Option Size",
+  "title.options.size.name": "Size name",
+  "title.options.size.extraPrice": "Extra price(%)",
+  "title.size.name.required": "Size name is required",
+  "title.options.topping.list": "Options Topping",
+  "title.options.topping.add": "Add new Option topping",
+  "title.options.topping.edit": "Edit Option topping",
+  "title.topping.name.required": "Topping name is required",
+  "title.topping.name": "Topping name",
 
 
   "exists.name": "Exists name",
@@ -90,6 +106,7 @@
 
   "message.add.success": "Success",
   "message.delete": "Confirm delete?",
+  "message.delete.notify": "Notify delete?",
   "record.deleted": "Record has been delete",
   "message.delete.success": "Delete success",
   "message.noRecords": "No records"

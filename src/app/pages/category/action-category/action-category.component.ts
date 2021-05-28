@@ -40,7 +40,9 @@ export class ActionCategoryComponent implements OnInit {
   }
 
   ngAfterViewInit(): void {
-    this.inputFile.nativeElement.value = this.category.fileName;
+    if (this.category.fileName) {
+      this.inputFile.nativeElement.value = this.category.fileName;
+    }
   }
 
   close() {

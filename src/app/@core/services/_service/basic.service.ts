@@ -58,7 +58,7 @@ export class BasicService {
     return this.http.delete(url);
   }
 
-  public findAllData():Observable<any> {
+  public findAllData(): Observable<any> {
     const url = `${this.serviceUrl}/find_all`;
     return this.http.get(url);
   }

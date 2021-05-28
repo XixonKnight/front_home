@@ -4,6 +4,7 @@ export const CONFIG: any = {
     'products': '/product',
     'options.size': '/options/size',
     'options.ice': '/options/ice',
+    'options.topping': '/options/topping',
   },
 };
 
