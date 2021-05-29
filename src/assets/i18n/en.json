@@ -56,6 +56,8 @@
   "sidebar.size": "Size",
   "sidebar.ice": "Ice",
   "sidebar.topping": "Topping",
+  "sidebar.customer": "Customer",
+  "sidebar.city": "City",
 
   "title.placeholder.uploadFile": "Upload file",
 
@@ -103,6 +105,31 @@
   "title.category.name.required": "Category name is required",
   "title.category.addTitle": "Add new category",
   "title.category.editTitle": "Edit category",
+
+
+  "title.customer.list": "Data Customer",
+  "title.customer.travel": "Travel",
+  "title.customer.postal": "Postal",
+  "title.customer.name": "Customer name",
+  "title.customer.city": "City",
+  "title.customer.dateOrder": "Date order",
+  "title.customer.tourGuide": "Tour guide",
+  "title.customer.time": "Time",
+  "title.customer.postalAddress": "Postal Address",
+  "title.customer.add": "Add new customer ",
+  "title.customer.edit": "Edit customer",
+  "title.city.name": "City name",
+  "title.city.name.required": "City name is required",
+  "title.city.address": "Address",
+  "title.city.address.required": "Address is required",
+  "title.city.state": "State",
+  "title.city.state.required": "State is required",
+  "title.city.founding": "Founding",
+  "title.city.founding.required": "Founding is required",
+  "title.city.list": "Data City",
+  "title.city.add": "Add new city",
+  "title.city.edit": "Edit city",
+
 
   "message.add.success": "Success",
   "message.delete": "Confirm delete?",

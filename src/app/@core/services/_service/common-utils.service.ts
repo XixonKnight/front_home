@@ -88,6 +88,8 @@ export class CommonUtils {
           for (let i = 0; i < value.length; i++) {
             formData.append(key, value[i]);
           }
+        } else {
+          formData.append(key, value);
         }
       } else {
         formData.append(key, value);

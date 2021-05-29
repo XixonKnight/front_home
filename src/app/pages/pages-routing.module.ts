@@ -29,25 +29,25 @@ const routes: Routes = [{
         .then(m => m.MiscellaneousModule),
     },
     {
-      path: 'user',
-      loadChildren: () => import('./users/users.module')
-        .then(m => m.UsersModule),
+      path: 'customer',
+      loadChildren: () => import('./customer/customer.module')
+        .then(m => m.CustomerModule),
     },
     {
-      path: 'products',
-      loadChildren: () => import('./products/products.module')
-        .then(m => m.ProductsModule),
+      path: 'city',
+      loadChildren: () => import('./city/city.module')
+        .then(m => m.CityModule),
     },
-    {
-      path: 'category',
-      loadChildren: () => import('./category/category.module')
-        .then(m => m.CategoryModule),
-    },
-    {
-      path: 'options',
-      loadChildren: () => import('./options/options.module')
-        .then(m => m.OptionsModule),
-    },
+    // {
+    //   path: 'products',
+    //   loadChildren: () => import('./products/products.module')
+    //     .then(m => m.ProductsModule),
+    // },
+    // {
+    //   path: 'category',
+    //   loadChildren: () => import('./category/category.module')
+    //     .then(m => m.CategoryModule),
+    // },
     {
       path: '',
       redirectTo: 'dashboard',

@@ -5,6 +5,7 @@ export const CONFIG: any = {
     'options.size': '/options/size',
     'options.ice': '/options/ice',
     'options.topping': '/options/topping',
+    'city': '/city',
   },
 };
 

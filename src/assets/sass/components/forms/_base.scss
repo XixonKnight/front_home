@@ -286,7 +286,17 @@
     top: 0;
   }
 }
-
+.p-calendar{
+  .p-component{
+    border: none !important;
+    outline: none !important;
+  }
+}
+.p-input-icon-right{
+  i{
+    z-index: 99;
+  }
+}
 .p-dropdown-custom {
   .p-dropdown-label{
     padding: 0 !important;
