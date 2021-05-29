@@ -82,7 +82,6 @@ export class ActionProductComponent implements OnInit {
 
   processSaveOrUpdate() {
     this.isSubmitted = true;
-    console.log(this.form.value)
     if (this.form.valid) {
       this.spinner.show();
       this.service.saveOrUpdate(this.form.value).subscribe(res => {

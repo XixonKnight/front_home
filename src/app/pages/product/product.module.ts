@@ -12,7 +12,7 @@ import {TableModule} from 'primeng/table';
 import {InputTextModule} from 'primeng/inputtext';
 import {ButtonModule} from 'primeng/button';
 import { DeleteProductComponent } from './delete-product/delete-product.component';
-import {DropdownModule} from "primeng/dropdown";
+import {DropdownModule} from 'primeng/dropdown';
 // @ts-ignore
 
 const routes: Routes = [
