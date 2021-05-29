@@ -12,6 +12,7 @@ export const environment = {
   production: false,
   apiUrl: 'http://localhost:9001/',
   serverUrl: {
-    baseUrl: 'http://localhost:9001',
+    // baseUrl: 'http://localhost:9001',
+    baseUrl: 'http://192.168.1.214/:9001',
   },
 };

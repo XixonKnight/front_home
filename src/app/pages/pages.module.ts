@@ -10,6 +10,7 @@ import {HttpClient} from '@angular/common/http';
 import {TranslateHttpLoader} from '@ngx-translate/http-loader';
 import {TranslateLoader, TranslateModule} from '@ngx-translate/core';
 import {MessageService} from 'primeng/api';
+import { ProductComponent } from './product/product.component';
 
 
 // AOT compilation support
@@ -34,6 +35,7 @@ export function httpTranslateLoader(http: HttpClient) {
   ],
   declarations: [
     PagesComponent,
+    ProductComponent,
   ],
 })
 export class PagesModule {
