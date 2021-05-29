@@ -6,6 +6,8 @@ export const CONFIG: any = {
     'options.ice': '/options/ice',
     'options.topping': '/options/topping',
     'city': '/city',
+    'store': '/store',
+    'customer.travel': '/customer/travel',
   },
 };
 

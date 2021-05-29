@@ -19,8 +19,7 @@ export class CustomerComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.items = [
-    ];
+    this.items = [];
   }
 
   processSave() {
@@ -29,6 +28,8 @@ export class CustomerComponent implements OnInit {
 
   processDelete() {
   }
-  processSearch(){}
+
+  processSearch() {
+  }
 
 }

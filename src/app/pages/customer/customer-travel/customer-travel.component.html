@@ -18,7 +18,6 @@
     <colgroup>
       <col class="size-1">
       <col class="size-1">
-      <col class="size-1">
       <col class="size-3">
       <col class="size-2">
       <col class="size-2">
@@ -29,9 +28,6 @@
   <ng-template pTemplate="header">
     <tr>
       <th class="text-center">
-        <p-tableHeaderCheckbox></p-tableHeaderCheckbox>
-      </th>
-      <th class="text-center">
         {{'title.table.index' | translate}}
       </th>
       <th class="text-center">
@@ -41,7 +37,7 @@
         {{'title.customer.name' | translate}}
       </th>
       <th class="text-center">
-        {{'title.customer.city' | translate}}
+        {{'title.city.department.name' | translate}}
       </th>
       <th class="text-center">
         {{'title.customer.time' | translate}}
@@ -56,7 +52,24 @@
   </ng-template>
   <ng-template pTemplate="body"
                let-item let-index="rowIndex+1">
-
+    <tr>
+      <td class="text-center">{{index}}</td>
+      <td class="text-center">
+        <i class="pi pi-pencil text-primary cursor-pointer"
+           (click)="processEdit(item)"
+           pTooltip="{{'title.button.edit' | translate}}">
+        </i>
+        <i class="pi pi-trash text-danger p-ml-3 cursor-pointer"
+           (click)="processDelete(item.id)"
+           pTooltip="{{'title.button.delete' | translate}}">
+        </i>
+      </td>
+      <td class="text-center">{{item.customerName}}</td>
+      <td class="text-center">{{item.nameDepartment}}</td>
+      <td class="text-center">{{item.time | date : 'dd/MM/yyyy'}}</td>
+      <td class="text-center">{{item.dateFirstOrder |date:'dd/MM/yyyy'}}</td>
+      <td class="text-center">{{item.tourGuide}}</td>
+    </tr>
   </ng-template>
   <ng-template pTemplate="emptymessage">
     <tr class="empty_message">

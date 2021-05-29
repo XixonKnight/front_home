@@ -38,11 +38,11 @@ const routes: Routes = [{
       loadChildren: () => import('./city/city.module')
         .then(m => m.CityModule),
     },
-    // {
-    //   path: 'products',
-    //   loadChildren: () => import('./products/products.module')
-    //     .then(m => m.ProductsModule),
-    // },
+    {
+      path: 'products',
+      loadChildren: () => import('./product/product.module')
+        .then(m => m.ProductModule),
+    },
     // {
     //   path: 'category',
     //   loadChildren: () => import('./category/category.module')

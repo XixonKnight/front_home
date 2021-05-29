@@ -67,6 +67,7 @@
           <col class="size-1">
           <col class="size-1">
           <col class="size-3">
+          <col class="size-3">
           <col class="size-2">
           <col class="size-2">
           <col class="size-2">
@@ -74,9 +75,6 @@
       </ng-template>
       <ng-template pTemplate="header">
         <tr>
-          <!--          <th class="text-center">-->
-          <!--            <p-tableHeaderCheckbox></p-tableHeaderCheckbox>-->
-          <!--          </th>-->
           <th class="text-center">
             {{'title.table.index' | translate}}
           </th>
@@ -85,6 +83,9 @@
           </th>
           <th class="text-center">
             {{'title.city.name' | translate}}
+          </th>
+          <th class="text-center">
+            {{'title.city.department.name' | translate}}
           </th>
           <th class="text-center">
             {{'title.city.address' | translate}}
@@ -100,9 +101,6 @@
       <ng-template pTemplate="body"
                    let-item let-index="rowIndex+1">
         <tr>
-          <!--          <td class="text-center">-->
-          <!--            <p-tableCheckbox [value]="item"></p-tableCheckbox>-->
-          <!--          </td>-->
           <td class="text-center">{{index}}</td>
           <td class="text-center">
             <i class="pi pi-pencil text-primary cursor-pointer"
@@ -115,13 +113,14 @@
             </i>
           </td>
           <td class="text-center">{{item.cityName}}</td>
+          <td class="text-center">{{item.nameDepartment}}</td>
           <td class="text-center">{{item.address}}</td>
           <td class="text-center">{{item.state}}</td>
           <td class="text-center">{{item.createdDate | date: 'dd/MM/yyyy'}}</td>
       </ng-template>
       <ng-template pTemplate="emptymessage">
         <tr class="empty_message">
-          <td [attr.colspan]="6" [innerHTML]="'message.noRecords' | translate">
+          <td [attr.colspan]="7" [innerHTML]="'message.noRecords' | translate">
           </td>
         </tr>
       </ng-template>

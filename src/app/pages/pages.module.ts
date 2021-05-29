@@ -10,6 +10,11 @@ import {HttpClient} from '@angular/common/http';
 import {TranslateHttpLoader} from '@ngx-translate/http-loader';
 import {TranslateLoader, TranslateModule} from '@ngx-translate/core';
 import {MessageService} from 'primeng/api';
+import { ProductComponent } from './product/product.component';
+import {PortletModule} from "../shares/portlet/portlet.module";
+import {TooltipModule} from "primeng/tooltip";
+import {TableModule} from "primeng/table";
+import { StoreComponent } from './store/store.component';
 
 
 // AOT compilation support
@@ -31,9 +36,14 @@ export function httpTranslateLoader(http: HttpClient) {
         deps: [HttpClient],
       },
     }),
+    PortletModule,
+    TooltipModule,
+    TableModule,
   ],
   declarations: [
     PagesComponent,
+    ProductComponent,
+    StoreComponent,
   ],
 })
 export class PagesModule {
