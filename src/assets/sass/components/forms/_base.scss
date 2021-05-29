@@ -297,6 +297,22 @@
     z-index: 99;
   }
 }
+a{
+  text-decoration: none !important;
+  box-shadow: none !important;
+}
+.p-autocomplete{
+  .p-component{
+    border: none !important;
+    outline: none !important;
+    box-shadow: none !important;
+  }
+}
+//.layout-container{
+//  .content{
+//    background: #0BB7AF !important;
+//  }
+//}
 .p-dropdown-custom {
   .p-dropdown-label{
     padding: 0 !important;

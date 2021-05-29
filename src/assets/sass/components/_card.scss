@@ -18,7 +18,7 @@
         min-height: 50px;
         padding-top: 0;
         padding-bottom: 0;
-        background-color: #ededed;
+        background-color: #dfe6e1;
         font-family: 'Roboto';
         cursor: pointer;
         // Title
@@ -43,7 +43,7 @@
                         line-height: 0;
                     }
                 }
- 
+
                 .svg-icon {
                     @include svg-icon-size(24px);
                     @include svg-icon-color($dark-50);

@@ -12,6 +12,7 @@ export class CustomerComponent implements OnInit {
   lstDel: any[] = [];
   items: MenuItem[];
 
+
   constructor(
     private modal: NgbModal,
   ) {
@@ -28,5 +29,6 @@ export class CustomerComponent implements OnInit {
 
   processDelete() {
   }
+  processSearch(){}
 
 }
