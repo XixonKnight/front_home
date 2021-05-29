@@ -13,6 +13,7 @@ import {InputTextModule} from 'primeng/inputtext';
 import {ReactiveFormsModule} from '@angular/forms';
 import {ButtonModule} from 'primeng/button';
 import {CalendarModule} from 'primeng/calendar';
+import {AutoCompleteModule} from 'primeng/autocomplete';
 
 const routes: Routes = [
   {
@@ -35,6 +36,7 @@ const routes: Routes = [
     ReactiveFormsModule,
     ButtonModule,
     CalendarModule,
+    AutoCompleteModule,
   ],
 })
 export class CityModule {

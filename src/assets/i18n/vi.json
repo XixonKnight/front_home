@@ -8,6 +8,7 @@
   "title.or": "HOẶC",
   "title.and": "và",
   "title.image": "Ảnh",
+  "title.search": "Tìm kiếm",
   "title.price":"Giá",
   "title.edit": "Thêm mới",
   "title.price.required": "Giá không được để trống",
@@ -76,6 +77,7 @@
   "title.button.submit": "Lưu",
   "title.button.new": "Thêm mới",
   "title.button.edit": "Sửa",
+  "title.button.search": "Tìm kiếm",
 
 
 

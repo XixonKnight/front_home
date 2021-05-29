@@ -13,6 +13,8 @@ export class BasicService {
   public serviceUrl: string;
   public module: string;
   public systemCode: string;
+  credentials: any = {};
+
 
   constructor(
     systemCode: string,
@@ -28,7 +30,10 @@ export class BasicService {
   }
 
   search(data?: any, event?: any): Observable<any> {
-    const searchData: any = {};
+    if (!event) {
+      this.credentials = Object.assign({}, data);
+    }
+    const searchData = CommonUtils.convertData(this.credentials);
     if (event) {
       searchData._search = event;
     }

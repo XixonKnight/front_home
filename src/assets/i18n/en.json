@@ -4,6 +4,7 @@
 
   "title.login": "Login",
   "title.or": "OR",
+  "title.search": "Search",
   "title.and": "and",
   "title.gallery": "GALLERY",
   "title.image": "Image",
@@ -70,6 +71,7 @@
   "title.button.submit": "Submit",
   "title.button.new": "New",
   "title.button.edit": "Edit",
+  "title.button.search": "Search",
 
 
   "title.product.listProduct": "List Product",
