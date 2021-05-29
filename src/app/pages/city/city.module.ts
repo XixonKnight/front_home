@@ -8,11 +8,11 @@ import {TableModule} from 'primeng/table';
 import {TranslateModule} from '@ngx-translate/core';
 import {DeleteCityComponent} from './delete-city/delete-city.component';
 import {ActionCityComponent} from './action-city/action-city.component';
-import {NgxSpinnerModule} from "ngx-spinner";
-import {InputTextModule} from "primeng/inputtext";
-import {ReactiveFormsModule} from "@angular/forms";
-import {ButtonModule} from "primeng/button";
-import {CalendarModule} from "primeng/calendar";
+import {NgxSpinnerModule} from 'ngx-spinner';
+import {InputTextModule} from 'primeng/inputtext';
+import {ReactiveFormsModule} from '@angular/forms';
+import {ButtonModule} from 'primeng/button';
+import {CalendarModule} from 'primeng/calendar';
 
 const routes: Routes = [
   {

@@ -10,7 +10,7 @@ import {BasicService} from './basic.service';
   providedIn: 'root',
 })
 export class ProductService extends BasicService {
-  private readonly baseUrl = `${environment.apiUrl}product`;
+  // private readonly baseUrl = `${environment.apiUrl}product`;
 
   constructor(
     public http: HttpClient,
@@ -18,9 +18,9 @@ export class ProductService extends BasicService {
     super('baseUrl', 'products', http);
   }
 
-  saveOrUpdate(form: any): Observable<DataResponse> {
-    const formData = CommonUtils.convertFormFile(form);
-    // console.log(f)
-    return this.http.post(`${this.baseUrl}`, formData);
-  }
+  // saveOrUpdate(form: any): Observable<DataResponse> {
+  //   const formData = CommonUtils.convertFormFile(form);
+  //   // console.log(f)
+  //   return this.http.post(`${this.baseUrl}`, formData);
+  // }
 }
