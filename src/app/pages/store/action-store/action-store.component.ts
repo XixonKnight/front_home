@@ -46,9 +46,12 @@ export class ActionStoreComponent implements OnInit {
         guidCity: ['', Validators.required],
         // guid: ['', Validators.required],
         phoneNumber: ['', Validators.required],
+        cityName: ['', Validators.required],
+
       });
     } else {
       this.form = this.fb.group({
+        cityName: [this.store.cityName, Validators.required],
         id: [this.store.id],
         nameStore: [this.store.nameStore, Validators.required],
         createdDate: [new Date(this.store.createdDate), Validators.required],
@@ -75,7 +78,6 @@ export class ActionStoreComponent implements OnInit {
 
   processSaveOrUpdate() {
     this.isSubmitted = true;
-    console.log(this.form.value)
     if (this.form.valid) {
       this.spinner.show();
       this.service.saveOrUpdate(this.form.value).subscribe(res => {

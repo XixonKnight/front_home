@@ -7,6 +7,8 @@ import {ProductService} from '../../@core/services/_service/product.service';
 import {ActionCityComponent} from '../city/action-city/action-city.component';
 import {DeleteCityComponent} from '../city/delete-city/delete-city.component';
 import {DeleteProductComponent} from './delete-product/delete-product.component';
+import {FormBuilder, FormGroup} from '@angular/forms';
+import {NgxSpinnerService} from 'ngx-spinner';
 
 @Component({
   selector: 'ngx-product',
@@ -17,15 +19,39 @@ export class ProductComponent implements OnInit {
   lstDel: any[] = [];
   total: any;
   listProduct: any[] = [];
+  formSearch: FormGroup;
+  lstDataSearch: any[] = [];
+
 
   constructor(
     private modal: NgbModal,
+    private fb: FormBuilder,
     private service: ProductService,
+    private spinner: NgxSpinnerService,
   ) {
   }
 
   ngOnInit(): void {
     this.processSearchData(event);
+    this.getNameDepartment();
+    this.initForm();
+  }
+
+  get f() {
+    return this.formSearch.controls;
+  }
+
+  initForm() {
+    this.formSearch = this.fb.group({
+      productName: [''],
+      nameStore: [''],
+    });
+  }
+
+  getNameDepartment() {
+    this.service.findAllData().subscribe(res => {
+      this.lstDataSearch = res.data;
+    });
   }
 
   processEdit(item: any) {
@@ -38,6 +64,11 @@ export class ProductComponent implements OnInit {
         }
       },
     );
+  }
+
+  processSearch(event?: any) {
+    // @ts-ignore
+    this.processSearchData(event);
   }
 
   processSearchData(event?: any) {

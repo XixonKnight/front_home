@@ -1,4 +1,48 @@
 <kt-portlet>
+  <kt-portlet-header [icon]="'pi pi-search'"
+                     [title]="'title.search' | translate ">
+  </kt-portlet-header>
+  <kt-portlet-body>
+    <form [formGroup]="formSearch">
+      <div class="p-fluid p-grid">
+        <div class="p-md-4" style="padding: 1rem 0.5rem  !important;">
+              <span class="p-float-label">
+                <input id="nameStore"
+                       type="text"
+                       class="form-control"
+                       formControlName="nameStore"
+                       pInputText>
+                <label for="nameStore">Tên cửa hàng</label>
+              </span>
+        </div>
+        <div class="p-md-4" style="padding: 1rem 0.5rem  !important;">
+              <span class="p-float-label">
+                <input id="nameDepartment"
+                       type="text"
+                       class="form-control"
+                       formControlName="nameDepartment"
+                       pInputText>
+                <label for="nameDepartment">Văn phòng đại diện</label>
+              </span>
+        </div>
+        <div class="p-md-4" style="padding: 1rem 0.5rem  !important;">
+              <span class="p-float-label">
+                <input id="cityName"
+                       type="text"
+                       class="form-control"
+                       formControlName="cityName"
+                       pInputText>
+                <label for="cityName">Thành phố</label>
+              </span>
+        </div>
+
+      </div>
+    </form>
+    <button type="button" class="btn btn-info"
+            (click)="processSearch()">{{'title.button.search' | translate}}</button>
+  </kt-portlet-body>
+</kt-portlet>
+<kt-portlet>
   <kt-portlet-header [icon]="'pi pi-align-justify'"
                      [class]="'d-flex flex-row'"
                      [title]="'Danh sách cửa hàng'  ">
@@ -22,7 +66,7 @@
              [paginator]="listStore.length"
              [rows]="5"
              [totalRecords]="total"
-             (onLazyLoad)="processSearchData($event)"
+             (onLazyLoad)="processSearch($event)"
              dataKey="id"
              [lazy]="true"
              [(selection)]="lstDel"
@@ -32,6 +76,7 @@
           <!--          <col class="size-1">-->
           <col class="size-2">
           <col class="size-2">
+          <col class="size-4">
           <col class="size-4">
           <col class="size-4">
           <col class="size-4">
@@ -61,6 +106,9 @@
           <th class="text-center">
             Thời gian
           </th>
+          <th class="text-center">
+            Thành phố
+          </th>
         </tr>
       </ng-template>
       <ng-template pTemplate="body"
@@ -83,11 +131,13 @@
           <td class="text-center">{{item.nameDepartment}}</td>
           <td class="text-center">{{item.phoneNumber}}</td>
           <td class="text-center">{{item.createdDate | date: 'dd/MM/yyyy'}}</td>
-          </tr>
+          <td class="text-center">{{item.cityName}}</td>
+
+        </tr>
       </ng-template>
       <ng-template pTemplate="emptymessage">
         <tr class="empty_message">
-          <td [attr.colspan]="6" [innerHTML]="'message.noRecords' ">
+          <td [attr.colspan]="7" [innerHTML]="'message.noRecords' ">
           </td>
         </tr>
       </ng-template>
