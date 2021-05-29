@@ -61,6 +61,7 @@
   "sidebar.ice": "Ice",
   "sidebar.topping": "Topping",
   "sidebar.customer": "Customer",
+  "sidebar.store": "Store",
   "sidebar.city": "Representative Office",
 
   "title.placeholder.uploadFile": "Upload file",
@@ -121,6 +122,8 @@
   "title.customer.dateOrder": "Date order",
   "title.customer.tourGuide": "Tour guide",
   "title.customer.tourGuide.required": "Tour guide is required",
+  "title.customer.postal.name": "Postal Address",
+  "title.customer.postal.required": "Postal Address is required",
   "title.customer.time": "Time",
   "title.customer.postalAddress": "Postal Address",
   "title.customer.add": "Add new customer ",

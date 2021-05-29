@@ -16,6 +16,8 @@ import {ReactiveFormsModule} from "@angular/forms";
 import {InputTextModule} from "primeng/inputtext";
 import {DropdownModule} from "primeng/dropdown";
 import { DeleteTravelComponent } from './customer-travel/delete-travel/delete-travel.component';
+import { ActionPostalComponent } from './customer-postal/action-postal/action-postal.component';
+import { DeletePostalComponent } from './customer-postal/delete-postal/delete-postal.component';
 
 
 const routes: Routes = [
@@ -26,7 +28,7 @@ const routes: Routes = [
 ];
 
 @NgModule({
-  declarations: [CustomerComponent, CustomerTravelComponent, CustomerPostalComponent, ActionTravelComponent, DeleteTravelComponent],
+  declarations: [CustomerComponent, CustomerTravelComponent, CustomerPostalComponent, ActionTravelComponent, DeleteTravelComponent, ActionPostalComponent, DeletePostalComponent],
   imports: [
     CommonModule,
     RouterModule.forChild(routes),

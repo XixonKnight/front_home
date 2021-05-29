@@ -62,6 +62,7 @@
   "sidebar.options": "Lựa chọn",
   "sidebar.size": "Kích thước",
   "sidebar.ice": "Đá",
+  "sidebar.store": "Cửa hàng",
   "sidebar.topping": "Topping",
   "sidebar.customer": "Khách hàng",
   "sidebar.city": "Văn phòng đại diện",
@@ -126,6 +127,10 @@
   "title.customer.tourGuide.required": "Hướng dẫn viên du lịch không được để trống",
   "title.customer.time": "Thời gian",
   "title.customer.postalAddress": "Địa chỉ bưu điện",
+
+  "title.customer.postal.name": "Địa chỉ bưu điện",
+  "title.customer.postal.required": "Địa chỉ bưu điện không được để trống",
+
   "title.customer.add": "Thêm mới khách hàng ",
   "title.customer.edit": "Chỉnh sửa khách hàng",
   "title.city.name": "Tên thành phố",

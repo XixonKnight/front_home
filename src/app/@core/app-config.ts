@@ -8,6 +8,7 @@ export const CONFIG: any = {
     'city': '/city',
     'store': '/store',
     'customer.travel': '/customer/travel',
+    'customer.postal': '/customer/postal',
   },
 };
 
