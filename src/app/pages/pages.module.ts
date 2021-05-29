@@ -15,6 +15,8 @@ import {PortletModule} from "../shares/portlet/portlet.module";
 import {TooltipModule} from "primeng/tooltip";
 import {TableModule} from "primeng/table";
 import { StoreComponent } from './store/store.component';
+import {ReactiveFormsModule} from "@angular/forms";
+import {InputTextModule} from "primeng/inputtext";
 
 
 // AOT compilation support
@@ -23,23 +25,25 @@ export function httpTranslateLoader(http: HttpClient) {
 }
 
 @NgModule({
-  imports: [
-    PagesRoutingModule,
-    ThemeModule,
-    NbMenuModule,
-    DashboardModule,
-    MiscellaneousModule,
-    TranslateModule.forChild({
-      loader: {
-        provide: TranslateLoader,
-        useFactory: httpTranslateLoader,
-        deps: [HttpClient],
-      },
-    }),
-    PortletModule,
-    TooltipModule,
-    TableModule,
-  ],
+    imports: [
+        PagesRoutingModule,
+        ThemeModule,
+        NbMenuModule,
+        DashboardModule,
+        MiscellaneousModule,
+        TranslateModule.forChild({
+            loader: {
+                provide: TranslateLoader,
+                useFactory: httpTranslateLoader,
+                deps: [HttpClient],
+            },
+        }),
+        PortletModule,
+        TooltipModule,
+        TableModule,
+        ReactiveFormsModule,
+        InputTextModule,
+    ],
   declarations: [
     PagesComponent,
     ProductComponent,

@@ -7,6 +7,8 @@ import {DEFAULT_MODAL_OPTIONS} from '../../@core/app-config';
 import {ActionStoreComponent} from './action-store/action-store.component';
 import {DeleteProductComponent} from '../product/delete-product/delete-product.component';
 import {DeleteStoreComponent} from './delete-store/delete-store.component';
+import {FormBuilder, FormGroup} from '@angular/forms';
+import {NgxSpinnerService} from 'ngx-spinner';
 
 @Component({
   selector: 'ngx-store',
@@ -17,14 +19,42 @@ export class StoreComponent implements OnInit {
   lstDel: any[] = [];
   total: any;
   listStore: any[] = [];
+  formSearch: FormGroup;
+  lstDataSearch: any[] = [];
+
 
   constructor(
     private modal: NgbModal,
     private service: StoreService,
+    private fb: FormBuilder,
+    private spinner: NgxSpinnerService,
   ) {
   }
 
   ngOnInit(): void {
+    this.initForm();
+    this.getDataSearch();
+  }
+
+  get f() {
+    return this.formSearch.controls;
+  }
+
+  initForm() {
+    this.formSearch = this.fb.group({
+      nameStore: [''],
+      nameDepartment: [''],
+      cityName: [''],
+    });
+  }
+
+  getDataSearch() {
+    this.service.findAllData().subscribe(res => {
+      this.lstDataSearch = res.data;
+    });
+  }
+
+  processSearch(event?: any) {
     this.processSearchData(event);
   }
 
@@ -34,14 +64,16 @@ export class StoreComponent implements OnInit {
     modalRef.componentInstance.store = item;
     modalRef.result.then(value => {
         if (value === 'success') {
-          this.processSearchData();
+          this.processSearch();
         }
       },
     );
   }
 
   processSearchData(event?: any) {
-    this.service.search( event, event).subscribe(res => {
+    this.spinner.show();
+    this.service.search(this.formSearch.value, event).subscribe(res => {
+      this.spinner.hide();
       this.listStore = res.data;
       this.total = res.recordsTotal;
     });
@@ -58,6 +90,7 @@ export class StoreComponent implements OnInit {
 
     });
   }
+
   processDelete(id: any) {
     const modalRef = this.modal.open(DeleteStoreComponent, DEFAULT_MODAL_OPTIONS);
     modalRef.componentInstance.idStore = id;
