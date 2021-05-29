@@ -1,26 +1,26 @@
+// @ts-ignore
+
 import {Component, Input, OnInit} from '@angular/core';
 import {FormBuilder, FormGroup, Validators} from '@angular/forms';
 import {NgbActiveModal} from '@ng-bootstrap/ng-bootstrap';
 import {ToastrService} from 'ngx-toastr';
 import {NgxSpinnerService} from 'ngx-spinner';
 import {TranslateService} from '@ngx-translate/core';
-import {CityService} from '../../../@core/services/_service/city.service';
 import {ProductService} from '../../../@core/services/_service/product.service';
 import {StoreService} from '../../../@core/services/_service/store.service';
+import {CityService} from '../../../@core/services/_service/city.service';
 
 @Component({
-  selector: 'ngx-action-product',
-  templateUrl: './action-product.component.html',
-  styleUrls: ['./action-product.component.scss'],
+  selector: 'ngx-action-store',
+  templateUrl: './action-store.component.html',
+  styleUrls: ['./action-store.component.scss'],
 })
-export class ActionProductComponent implements OnInit {
-
-
+export class ActionStoreComponent implements OnInit {
   @Input() action: any;
-  @Input() product: any;
+  @Input() store: any;
   isSubmitted: boolean = false;
   form: FormGroup;
-  lstStore: any[] = [];
+  lstCity: any[] = [];
 
   constructor(
     private modal: NgbActiveModal,
@@ -28,8 +28,8 @@ export class ActionProductComponent implements OnInit {
     private toastr: ToastrService,
     private spinner: NgxSpinnerService,
     private translate: TranslateService,
-    private service: ProductService,
-    private storeService: StoreService,
+    private service: StoreService,
+    private cityService: CityService,
   ) {
   }
 
@@ -41,27 +41,20 @@ export class ActionProductComponent implements OnInit {
   initForm() {
     if (this.action) {
       this.form = this.fb.group({
-        productName: ['', Validators.required],
-        description: [''],
-        size: ['', Validators.required],
-        weight: ['', Validators.required],
-        price: ['', Validators.required],
+        nameStore: ['', Validators.required],
         createdDate: ['', Validators.required],
-        guidStore: ['', Validators.required],
-        quantity: ['', Validators.required],
+        guidCity: ['', Validators.required],
+        // guid: ['', Validators.required],
+        phoneNumber: ['', Validators.required],
       });
     } else {
       this.form = this.fb.group({
-        id: [this.product.id],
-        guid: [this.product.guid],
-        productName: [this.product.productName, Validators.required],
-        description: [this.product.description],
-        size: [this.product.size, Validators.required],
-        weight: [this.product.weight, Validators.required],
-        createdDate: [new Date(this.product.createdDate), Validators.required],
-        price: [this.product.price, Validators.required],
-        guidStore: [this.product.guidStore, Validators.required],
-        quantity: [this.product.quantity, Validators.required],
+        id: [this.store.id],
+        nameStore: [this.store.nameStore, Validators.required],
+        createdDate: [new Date(this.store.createdDate), Validators.required],
+        guidCity: [this.store.guidCity, Validators.required],
+        guid: [this.store.guid],
+        phoneNumber: [this.store.phoneNumber, Validators.required],
       });
     }
   }
@@ -75,13 +68,14 @@ export class ActionProductComponent implements OnInit {
   }
 
   findAll() {
-    this.storeService.findAllData().subscribe(res => {
-      this.lstStore = res.data;
+    this.cityService.findAllData().subscribe(res => {
+      this.lstCity = res.data;
     });
   }
 
   processSaveOrUpdate() {
     this.isSubmitted = true;
+    console.log(this.form.value)
     if (this.form.valid) {
       this.spinner.show();
       this.service.saveOrUpdate(this.form.value).subscribe(res => {
@@ -96,4 +90,3 @@ export class ActionProductComponent implements OnInit {
     }
   }
 }
-
