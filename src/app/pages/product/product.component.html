@@ -35,7 +35,7 @@
 <kt-portlet>
   <kt-portlet-header [icon]="'pi pi-align-justify'"
                      [class]="'d-flex flex-row'"
-                     [title]="'Danh sách sản phẩm'  ">
+                     [title]="'title.product.listProduct' | translate ">
     <ng-container ktPortletTools>
       <button class="btn btn-success" (click)="processSave($event)"
               tooltipPosition="bottom"
@@ -43,12 +43,6 @@
 
         <i class="pi pi-plus"></i>
       </button>
-      <!--          <button class="btn btn-danger ml-2" (click)="processDelete()"-->
-      <!--                  pTooltip="{{'title.button.delete' | translate}}"-->
-      <!--                  tooltipPosition="bottom"-->
-      <!--                  [disabled]="lstDel.length === 0">-->
-      <!--            <i class="pi pi-trash"></i>-->
-      <!--          </button>-->
     </ng-container>
   </kt-portlet-header>
   <kt-portlet-body>
@@ -82,34 +76,34 @@
           <!--            <p-tableHeaderCheckbox></p-tableHeaderCheckbox>-->
           <!--          </th>-->
           <th class="text-center">
-            Id
+            {{'title.table.index' | translate}}
           </th>
           <th class="text-center">
-            Hành động
+            {{'title.action' | translate}}
           </th>
           <th class="text-center">
-            Tên sản phẩm
+            {{'title.product.name' | translate}}
           </th>
           <th class="text-center">
-            Thông tin
+            {{'title.description' | translate}}
           </th>
           <th class="text-center">
-            Kích cỡ
+            {{'title.size' | translate}}
           </th>
           <th class="text-center">
-            Khối lượng
+            {{'title.weight' | translate}}
           </th>
           <th class="text-center">
-            Giá
+            {{'title.price' | translate}}
           </th>
           <th class="text-center">
-            Thời gian
+            {{'title.createdDate' | translate}}
           </th>
           <th class="text-center">
-            Tên cửa hàng
+            {{'title.store' | translate}}
           </th>
           <th class="text-center">
-            Số lượng
+            {{'title.quantity' | translate}}
           </th>
         </tr>
       </ng-template>
@@ -142,7 +136,7 @@
       </ng-template>
       <ng-template pTemplate="emptymessage">
         <tr class="empty_message">
-          <td [attr.colspan]="10" [innerHTML]="'message.noRecords' ">
+          <td [attr.colspan]="10" [innerHTML]="'message.noRecords' | translate">
           </td>
         </tr>
       </ng-template>

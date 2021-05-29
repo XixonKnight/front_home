@@ -37,6 +37,7 @@ export class ActionCityComponent implements OnInit {
         cityName: ['', Validators.required],
         address: ['', Validators.required],
         state: ['', Validators.required],
+        nameDepartment: ['', Validators.required],
         createdDate: ['', Validators.required],
       });
     } else {
@@ -45,6 +46,7 @@ export class ActionCityComponent implements OnInit {
         cityName: [this.city.cityName, Validators.required],
         address: [this.city.address, Validators.required],
         state: [this.city.state, Validators.required],
+        nameDepartment: [this.city.nameDepartment, Validators.required],
         createdDate: [new Date(this.city.createdDate), Validators.required],
       });
     }

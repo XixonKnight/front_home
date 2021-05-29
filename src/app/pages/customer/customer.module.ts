@@ -12,6 +12,10 @@ import {TabViewModule} from 'primeng/tabview';
 import {TableModule} from 'primeng/table';
 import { ActionTravelComponent } from './customer-travel/action-travel/action-travel.component';
 import {NgxSpinnerModule} from 'ngx-spinner';
+import {ReactiveFormsModule} from "@angular/forms";
+import {InputTextModule} from "primeng/inputtext";
+import {DropdownModule} from "primeng/dropdown";
+import { DeleteTravelComponent } from './customer-travel/delete-travel/delete-travel.component';
 
 
 const routes: Routes = [
@@ -22,7 +26,7 @@ const routes: Routes = [
 ];
 
 @NgModule({
-  declarations: [CustomerComponent, CustomerTravelComponent, CustomerPostalComponent, ActionTravelComponent],
+  declarations: [CustomerComponent, CustomerTravelComponent, CustomerPostalComponent, ActionTravelComponent, DeleteTravelComponent],
   imports: [
     CommonModule,
     RouterModule.forChild(routes),
@@ -33,6 +37,9 @@ const routes: Routes = [
     TabViewModule,
     TableModule,
     NgxSpinnerModule,
+    ReactiveFormsModule,
+    InputTextModule,
+    DropdownModule,
   ],
 })
 export class CustomerModule {

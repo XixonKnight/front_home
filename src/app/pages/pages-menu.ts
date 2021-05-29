@@ -17,11 +17,6 @@ export const MENU_ITEMS: NbMenuItem[] = [
     link: '/pages/city',
   },
   {
-    title: 'Category',
-    icon: 'keypad-outline',
-    link: '/pages/category',
-  },
-  {
     title: 'Products',
     icon: 'shopping-bag-outline',
     link: '/pages/products',
