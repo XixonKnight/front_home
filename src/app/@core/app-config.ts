@@ -3,6 +3,7 @@ export const CONFIG: any = {
     'categories': '/categories',
     'products': '/product',
     'order': '/order',
+    'customer': '/customer',
     'order.detail': '/order/detail',
     'options.size': '/options/size',
     'options.ice': '/options/ice',

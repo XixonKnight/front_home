@@ -1,14 +1,12 @@
 import {Component, OnInit} from '@angular/core';
 import {FormBuilder, FormGroup} from '@angular/forms';
 import {NgbModal} from '@ng-bootstrap/ng-bootstrap';
-import {CityService} from '../../@core/services/_service/city.service';
 import {NgxSpinnerService} from 'ngx-spinner';
 import {DEFAULT_MODAL_OPTIONS, SMALL_MODAL_OPTIONS} from '../../@core/app-config';
 import {ActionOrderComponent} from './action-order/action-order.component';
 import {OrderService} from '../../@core/services/_service/order.service';
 import {Router} from '@angular/router';
-import {DeleteOrderDetailComponent} from './order-details/delete-order-detail/delete-order-detail.component';
-import {DeleteOrderComponent} from "./delete-order/delete-order.component";
+import {DeleteOrderComponent} from './delete-order/delete-order.component';
 
 @Component({
   selector: 'ngx-order',

@@ -4,6 +4,9 @@
   "quantity": "Quantity inventory",
   "title.quantity.than": "Quantity than Quantity inventory",
   "title.money": "Total money",
+  "title.total": "Total money",
+  "title.order.count": "Total Order",
+
 
   "title.login": "Login",
   "title.or": "OR",
@@ -121,6 +124,7 @@
 
 
   "title.customer.list": "Data Customer",
+  "title.customer.statistical": "Statistical Customer",
   "title.customer.travel": "Travel",
   "title.customer.postal": "Postal",
   "title.customer.name": "Customer name",

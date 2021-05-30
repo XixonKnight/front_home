@@ -4,6 +4,9 @@
   "quantity": "Số lượng trong kho",
   "title.quantity.than": "Số lượng lớn hơn số lượng tồn kho",
   "title.money": "Thành tiền",
+  "title.total": "Tổng số tiền mua hàng",
+  "title.order.count": "Số hóa đơn",
+
 
   "title.login": "Đăng nhập",
   "title.or": "HOẶC",
@@ -122,6 +125,7 @@
 
 
   "title.customer.list": "Danh sách khách hàng",
+  "title.customer.statistical": "Thống kê khách hàng",
   "title.customer.travel": "Du lịch",
   "title.customer.postal": "Bưu điện",
   "title.customer.name": "Tên khách hàng",

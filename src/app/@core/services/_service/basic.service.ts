@@ -67,4 +67,9 @@ export class BasicService {
     const url = `${this.serviceUrl}/find_all`;
     return this.http.get(url);
   }
+
+  public statistical(data: any): Observable<any> {
+    const url = `${this.serviceUrl}/statistical`;
+    return this.http.post(url, CommonUtils.convertFormFile(data));
+  }
 }

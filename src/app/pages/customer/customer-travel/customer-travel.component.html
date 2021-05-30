@@ -64,7 +64,11 @@
            pTooltip="{{'title.button.delete' | translate}}">
         </i>
       </td>
-      <td class="text-center">{{item.customerName}}</td>
+      <td class="text-center">
+        <a [routerLink]="['../customer/statistical',item.guid]">
+          {{item.customerName}}
+        </a>
+      </td>
       <td class="text-center">{{item.nameDepartment}}</td>
       <td class="text-center">{{item.time | date : 'dd/MM/yyyy'}}</td>
       <td class="text-center">{{item.dateFirstOrder |date:'dd/MM/yyyy'}}</td>
