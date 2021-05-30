@@ -32,7 +32,6 @@ export class ProductComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.processSearchData(event);
     this.getNameDepartment();
     this.initForm();
   }
@@ -72,7 +71,7 @@ export class ProductComponent implements OnInit {
   }
 
   processSearchData(event?: any) {
-    this.service.search(null, event).subscribe(res => {
+    this.service.search(this.formSearch.value, event).subscribe(res => {
       this.listProduct = res.data;
       this.total = res.recordsTotal;
     });
