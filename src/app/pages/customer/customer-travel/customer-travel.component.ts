@@ -1,4 +1,4 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, Input, OnInit} from '@angular/core';
 import {DEFAULT_MODAL_OPTIONS} from '../../../@core/app-config';
 import {NgbModal} from '@ng-bootstrap/ng-bootstrap';
 import {ActionTravelComponent} from './action-travel/action-travel.component';
@@ -14,6 +14,9 @@ import {DeleteTravelComponent} from './delete-travel/delete-travel.component';
   styleUrls: ['./customer-travel.component.scss'],
 })
 export class CustomerTravelComponent implements OnInit {
+
+  @Input() dataSearch: FormGroup;
+
   total: any;
   lstCustomerTravel: any[] = [];
   lstDel: any[] = [];

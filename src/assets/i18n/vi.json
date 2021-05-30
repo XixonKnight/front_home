@@ -1,12 +1,14 @@
 {
 
   "currency": "VND",
-
-
+  "quantity": "Số lượng trong kho",
+  "title.quantity.than": "Số lượng lớn hơn số lượng tồn kho",
+  "title.money": "Thành tiền",
 
   "title.login": "Đăng nhập",
   "title.or": "HOẶC",
   "title.and": "và",
+  "title.detail": "Chi tiết",
   "title.image": "Ảnh",
   "title.search": "Tìm kiếm",
   "title.price":"Giá",
@@ -66,6 +68,7 @@
   "sidebar.topping": "Topping",
   "sidebar.customer": "Khách hàng",
   "sidebar.city": "Văn phòng đại diện",
+  "sidebar.order": "Đơn đặt hàng",
   "title.placeholder.uploadFile": "Tải tệp lên",
 
 
@@ -82,6 +85,7 @@
   "title.button.new": "Thêm mới",
   "title.button.edit": "Sửa",
   "title.button.search": "Tìm kiếm",
+  "title.button.detail": "Chi tiết",
 
 
 
@@ -90,6 +94,7 @@
   "title.product.name": "Tên sản phẩm",
   "title.product.name.required": "Tên sản phẩm không được để trống",
   "title.product.category": "Loại sản phẩm",
+  "title.product.add": "Thêm sản phẩm",
 
   "title.options.ice.list": "Danh sách chọn nước đá",
   "title.options.ice.add": "Thêm mới nước đá",
@@ -146,6 +151,14 @@
   "title.city.list": "Danh dách các công ty",
   "title.city.add": "Thêm mới công ty",
   "title.city.edit": "Chỉnh sửa công ty",
+  "title.order.list": "Danh sách đơn đặt hàng",
+  "title.order.code": "Mã hóa đơn",
+  "title.order.total": "Tổng tiền",
+  "title.order.createdDate": "Ngày tạo",
+  "title.order.add": "Thêm mới hóa đơn",
+  "title.order.edit": "Chỉnh sửa hóa đơn",
+  "title.order.detail": "Chi tiết hóa đơn",
+
 
 
 

@@ -49,7 +49,7 @@ export class BasicService {
    * findOne
    * param id
    */
-  public findOne(id: number): Observable<any> {
+  public findOne(id: any): Observable<any> {
     const url = `${this.serviceUrl}/${id}`;
     return this.http.get(url);
   }

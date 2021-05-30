@@ -1,6 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {NgbModal} from '@ng-bootstrap/ng-bootstrap';
 import {MenuItem} from 'primeng/api';
+import {FormBuilder, FormGroup} from '@angular/forms';
 
 @Component({
   selector: 'ngx-customer',
@@ -9,25 +10,30 @@ import {MenuItem} from 'primeng/api';
 })
 export class CustomerComponent implements OnInit {
 
-  lstDel: any[] = [];
-  items: MenuItem[];
+  formSearch: FormGroup;
+  isSubmitted: boolean = false;
+
 
 
   constructor(
     private modal: NgbModal,
+    private fb: FormBuilder,
   ) {
   }
 
   ngOnInit(): void {
-    this.items = [];
+    this.initForm();
   }
 
-  processSave() {
-
+  initForm() {
+    this.formSearch = this.fb.group({
+      customerName: [''],
+      nameDepartment: [''],
+      postalAddress: [''],
+      tourGuide: [''],
+    });
   }
 
-  processDelete() {
-  }
 
   processSearch() {
   }

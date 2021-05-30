@@ -91,4 +91,14 @@ export class ActionStoreComponent implements OnInit {
       });
     }
   }
+
+  selectDepartment(event: any) {
+    this.spinner.show();
+    this.cityService.findOne(event.value).subscribe(res => {
+      this.spinner.hide();
+      this.form.patchValue({
+        cityName: res.data.cityName,
+      });
+    });
+  }
 }

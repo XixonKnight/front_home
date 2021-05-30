@@ -48,6 +48,11 @@ const routes: Routes = [{
       loadChildren: () => import('./store/store.module')
         .then(m => m.StoreModule),
     },
+    {
+      path: 'order',
+      loadChildren: () => import('./orders/orders.module')
+        .then(m => m.OrdersModule),
+    },
 
     // {
     //   path: 'category',

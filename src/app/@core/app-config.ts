@@ -2,6 +2,8 @@ export const CONFIG: any = {
   API_PATH: {
     'categories': '/categories',
     'products': '/product',
+    'order': '/order',
+    'order.detail': '/order/detail',
     'options.size': '/options/size',
     'options.ice': '/options/ice',
     'options.topping': '/options/topping',

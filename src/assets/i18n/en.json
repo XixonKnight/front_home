@@ -1,6 +1,9 @@
 {
 
   "currency": "USD",
+  "quantity": "Quantity inventory",
+  "title.quantity.than": "Quantity than Quantity inventory",
+  "title.money": "Total money",
 
   "title.login": "Login",
   "title.or": "OR",
@@ -9,6 +12,7 @@
   "title.gallery": "GALLERY",
   "title.image": "Image",
   "title.price":"Price",
+  "title.detail":"Detail",
   "title.store":"Store",
   "title.weight":"Weight",
   "title.createdDate":"Created date",
@@ -63,6 +67,7 @@
   "sidebar.customer": "Customer",
   "sidebar.store": "Store",
   "sidebar.city": "Representative Office",
+  "sidebar.order": "Order",
 
   "title.placeholder.uploadFile": "Upload file",
 
@@ -76,6 +81,7 @@
   "title.button.new": "New",
   "title.button.edit": "Edit",
   "title.button.search": "Search",
+  "title.button.detail": "Detail",
 
 
   "title.product.listProduct": "List Product",
@@ -83,6 +89,7 @@
   "title.product.name": "Name product",
   "title.product.name.required": "Name product is required",
   "title.product.category": "Category",
+  "title.product.add": "Add Product",
 
   "title.options.ice.list": "Options Ice",
   "title.options.ice.add": "Add new Option Ice",
@@ -141,6 +148,13 @@
   "title.city.list": "Data City",
   "title.city.add": "Add new city",
   "title.city.edit": "Edit city",
+  "title.order.list": "Data Orders",
+  "title.order.code": "Order code",
+  "title.order.total": "Total",
+  "title.order.createdDate": "Created date",
+  "title.order.add": "Add new order",
+  "title.order.edit": "Edit order",
+  "title.order.detail": "Details order",
 
 
   "message.add.success": "Success",

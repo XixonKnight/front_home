@@ -46,7 +46,6 @@ export class ActionProductComponent implements OnInit {
         size: ['', Validators.required],
         weight: ['', Validators.required],
         price: ['', Validators.required],
-        createdDate: ['', Validators.required],
         guidStore: ['', Validators.required],
         quantity: ['', Validators.required],
       });
@@ -58,7 +57,6 @@ export class ActionProductComponent implements OnInit {
         description: [this.product.description],
         size: [this.product.size, Validators.required],
         weight: [this.product.weight, Validators.required],
-        createdDate: [new Date(this.product.createdDate), Validators.required],
         price: [this.product.price, Validators.required],
         guidStore: [this.product.guidStore, Validators.required],
         quantity: [this.product.quantity, Validators.required],
