@@ -27,7 +27,7 @@
     "docs": "compodoc -p src/tsconfig.app.json -d docs",
     "docs:serve": "compodoc -p src/tsconfig.app.json -d docs -s",
     "release:changelog": "npm run conventional-changelog -- -p angular -i CHANGELOG.md -s",
-    "postinstall": "ngcc --properties es2015 es5 browser module main --first-only --create-ivy-entry-points --tsconfig \"./src/tsconfig.app.json\""
+    "postinstall": "npm run clean: dist && webpack --config config / webpack.prod.js --progress --profile --colors --display-error-details --display-cache --bail",
   },
   "dependencies": {
     "@akveo/ng2-completer": "^9.0.1",
